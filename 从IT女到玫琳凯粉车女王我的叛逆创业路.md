@@ -2,7 +2,7 @@
 
 #  从IT女到玫琳凯粉车女王:我的叛逆创业路
 
-原创  MK小亚  [ 小亚说 ](javascript:void\(0\);)
+原创  MK小亚  [ 小亚说 ](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2679158701706002433#wechat_redirect) 事业机会合集
 
 __ _ _ _ _
 

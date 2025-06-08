@@ -2,7 +2,7 @@
 
 #  跪了！ChatGPT教你：10个方法帮你找到合适的另一半
 
-原创  MK小亚  [ 小亚说 ](javascript:void\(0\);)
+原创  MK小亚  [ 小亚说 ](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2150334617126502403#wechat_redirect) 脱单合集
 
 __ _ _ _ _
 
