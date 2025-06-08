@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xiaoyarap.github.io/blog/sitemap.xml
