@@ -1,0 +1,8 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[src*="mmbiz.qpic.cn"]');
+    images.forEach(img => {
+      img.src = 'https://images.weserv.nl/?url=' + encodeURIComponent(img.src);
+    });
+  });
+</script>
