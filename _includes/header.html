@@ -1,3 +1,11 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[src*="mmbiz.qpic.cn"]');
+    images.forEach(img => {Add commentMore actions
+      img.src = 'https://images.weserv.nl/?url=' + encodeURIComponent(img.src);
+    });
+  });
+</script>
 <header class="site-header">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
