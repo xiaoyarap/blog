@@ -67,7 +67,7 @@
 
         /* 导航触发区域 - 修复高度一致性 */
         .nav-trigger-area {
-            width: 150px;
+            width: 180px;
             justify-content: flex-start;
             padding: 0.75rem 12px; /* 与blog-link保持一致的padding */
             cursor: pointer;
@@ -113,13 +113,13 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: rgba(255, 255, 255, 0.95); /* 桌面端简化毛玻璃效果 */
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.25); /* 恢复毛玻璃背景 */
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            min-width: 180px; /* 增加最小宽度 */
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            min-width: 180px;
             opacity: 0;
             transform: translateY(-10px);
             pointer-events: none;
@@ -135,8 +135,8 @@
             }
 
             .nav-trigger-area {
-                width: 100px; /* 移动端缩小宽度 */
-                padding: 0.6rem 8px;
+                width: 60px; /* 移动端缩小宽度 */
+                padding: 0.6rem 4px;
                 min-height: 40px;
             }
 
@@ -146,18 +146,18 @@
 
             .drawer {
                 position: fixed;
-                top: 80px; /* 根据header高度调整 */
-                right: 10px; /* 稍微离右边缘一点 */
-                width: 160px; /* 固定合理宽度 */
+                top: 60px;
+                right: 4px;
+                width: 120px; /* 缩小下拉框 */
                 max-width: none;
-                background: rgba(255, 255, 255, 0.98); /* 移动端简化毛玻璃 */
-                backdrop-filter: none; /* 移动端关闭毛玻璃效果 */
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: none; /* 移动端关闭毛玻璃 */
                 -webkit-backdrop-filter: none;
                 border-radius: 12px;
                 box-shadow: 0 8px 24px rgba(0,0,0,0.2);
                 z-index: 9999;
                 padding: 0.5rem 0;
-                max-height: 60vh;
+                max-height: 65vh;
                 border: 1px solid #e0e0e0;
             }
         }
@@ -172,7 +172,7 @@
         /* 导航链接样式 - 统一高度 */
         .page-link {
             display: block;
-            padding: 12px 20px;
+            padding: 4px 2px;
             text-decoration: none;
             color: #333;
             border-bottom: 1px solid #f0f0f0;
@@ -193,14 +193,15 @@
         .page-link:hover {
             background-color: #f8f9fa;
             color: #007bff;
-            padding-left: 25px;
+            padding-left: 18px;
+            font-weight: bold; 
         }
 
         /* 悬停时的小箭头效果 */
         .page-link:hover::before {
             content: "→";
             position: absolute;
-            left: 8px;
+            left: 4px;
             color: #007bff;
         }
 
@@ -208,16 +209,17 @@
         @media (max-width: 768px) {
             .page-link {
                 font-size: 13px;
-                padding: 10px 16px;
-                min-height: 36px;
+                padding: 8px 10px;
+                min-height: 34px;
             }
             
             .page-link:hover {
-                padding-left: 20px;
+                padding-left: 14px;
+                font-weight: bold; 
             }
             
             .page-link:hover::before {
-                left: 6px;
+                left: 4px;
             }
         }
 
