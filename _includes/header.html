@@ -115,15 +115,19 @@
         /* 🌐 对 backdrop-filter 兼容性不好的设备做降级处理 */
       @media (max-width: 768px) {
             .drawer {
-                width: 85vw; /* 使用相对单位，适配不同宽度手机 */
-                max-width: 260px; /* 防止过宽 */
-                right: 0; 
-                left: auto;
+                position: fixed;                /* ✅ 改为固定在页面右侧，而不是导航元素里 */
+                top: 70px;                      /* ✅ 离顶部一点位置（根据 header 高度调整） */
+                right: 0;
+                width: 85vw;
+                max-width: 260px;
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 12px 0 0 12px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                z-index: 9999;
+                padding: 0.5rem 0;
+                overflow-y: auto;
+                max-height: 70vh;
                 border: 1px solid #e0e0e0;
-                border-radius: 12px 0 0 12px;  /* 左上、左下圆角 */
-                max-height: 70vh; /* 控制高度，防止超出视窗 */
-                overflow-y: auto; /* 内容滚动处理 */
-                padding: 0.5rem 0; /* 添加上下内边距 */
             }
     
             .page-link {
