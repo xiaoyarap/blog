@@ -1,13 +1,163 @@
 <header class="site-header">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .site-nav {
+            position: relative;
+        }
+
+        /* 导航触发区域 */
+        .nav-trigger-area {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-trigger-area:hover {
+            background-color: #f0f0f0;
+        }
+
+        .nav-trigger-area::after {
+            content: "导航";
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* 汉堡菜单图标 */
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            width: 20px;
+            height: 2px;
+            background-color: #666;
+            transition: all 0.3s ease;
+        }
+
+        /* 抽屉容器 */
+        .drawer {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            min-width: 200px;
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        /* 悬停时显示抽屉 */
+        .site-nav:hover .drawer {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* 导航链接样式 */
+        .page-link {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .page-link:last-child {
+            border-bottom: none;
+        }
+
+        .page-link:hover {
+            background-color: #f8f9fa;
+            color: #007bff;
+            padding-left: 25px;
+        }
+
+        /* 悬停时的小箭头效果 */
+        .page-link:hover::before {
+            content: "→";
+            position: absolute;
+            left: 8px;
+            color: #007bff;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 1rem;
+            }
+            
+            .drawer {
+                right: -10px;
+                min-width: 180px;
+            }
+        }
+
+        /* 菜单图标动画 */
+        .site-nav:hover .menu-icon span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .site-nav:hover .menu-icon span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .site-nav:hover .menu-icon span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    </style>
   <div class="wrapper">
-    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-    <nav class="site-nav">
-      <div class="trigger">
-        <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708249854717526017#wechat_redirect">健康营养</a>
-        <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2679158701706002433#wechat_redirect">事业机会</a>
-        <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708248415014289409#wechat_redirect">情感博客</a>
-        <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=3950017545632923649#wechat_redirect">我的故事</a>
-      </div>
-    </nav>
-  </div>
+        <nav class="site-nav">
+            <div class="nav-trigger-area">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="drawer">
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708249854717526017#wechat_redirect">健康营养</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2679158701706002433#wechat_redirect">事业机会</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708248415014289409#wechat_redirect">情感博客</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=3950017545632923649#wechat_redirect">我的故事</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2876587720456847362#wechat_redirect">旅行日记</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2659127669585952771#wechat_redirect">价值观</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2154063274026270721#wechat_redirect">玫琳凯</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1853991915973574659#wechat_redirect">免疫金三角</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708249292227805186#wechat_redirect">读书笔记</a>
+                <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2480908578841772032#wechat_redirect">电影</a>
+            </div>
+        </nav>
+    </div>
 </header>
