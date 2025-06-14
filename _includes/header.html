@@ -62,17 +62,29 @@
 
         /* 导航触发区域 */
         .nav-trigger-area {
-            padding: 10px 15px;
+            width: 150px; /* 或 100% 如果外层容器限制好了宽度 */
+            justify-content: flex-start; /* 内容靠左 */
+            padding: 8px 2px;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
             transition: background-color 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
+        .nav-trigger-area,
+        .page-link {
+            min-height: 30px;
+            display: flex;
+            align-items: left;
+        }
+
         .nav-trigger-area:hover {
             background-color: #f0f0f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 悬停加深阴影 */
         }
 
         .nav-trigger-area::after {
