@@ -10,9 +10,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        .blog-link {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .blog-link:hover {
+            background-color: rgba(240,240,240,0.8);
+            color: #007bff;
+        }
+
+        @media (max-width: 768px) {
+            .blog-link {
+                font-size: 14px;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
         .wrapper {
             display: flex;
-            justify-content: flex-end; /* 修改：导航靠右 */
+            justify-content: space-between; /* 修改：导航靠右 */
             align-items: center;
             padding: 1rem 2rem;
             background: #fff;
@@ -72,12 +98,12 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: rgba(255, 255, 255, 0.25); /* 更高透明度 */
-            backdrop-filter: blur(16px) saturate(180%); /* 更强的模糊 + 饱和度提升 */
-            -webkit-backdrop-filter: blur(16px) saturate(180%); /* Safari 支持 */
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* 更深的阴影增强立体感 */
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.18); /* 添加边框增强玻璃质感 */
+            border: 1px solid rgba(255, 255, 255, 0.18);
             min-width: 200px;
             opacity: 0;
             transform: translateY(-10px);
@@ -85,6 +111,26 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1000;
             overflow: hidden;
+        }
+        /* 🌐 对 backdrop-filter 兼容性不好的设备做降级处理 */
+      @media (max-width: 768px) {
+            .drawer {
+                width: 90vw; /* 使用相对单位，适配不同宽度手机 */
+                max-width: 300px; /* 防止过宽 */
+                right: 5vw; /* 留出安全边距，避免紧贴右边 */
+                background: rgba(255, 255, 255, 0.95); /* 背景不再全透明，确保可读性 */
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                border: 1px solid #e0e0e0;
+                max-height: 70vh; /* 控制高度，防止超出视窗 */
+                overflow-y: auto; /* 内容滚动处理 */
+                padding: 0.5rem 0; /* 添加上下内边距 */
+            }
+    
+            .page-link {
+                font-size: 14px; /* 字体稍小适配小屏 */
+                padding: 10px 16px;
+            }
         }
 
         /* 悬停时显示抽屉 */
@@ -149,6 +195,7 @@
         }
     </style>
   <div class="wrapper">
+        <a href="/" class="blog-link">Blog 首页</a>
         <nav class="site-nav">
             <div class="nav-trigger-area">
                 <div class="menu-icon">
