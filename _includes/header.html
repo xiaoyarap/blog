@@ -1,11 +1,3 @@
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img[src*="mmbiz.qpic.cn"]');
-    images.forEach(img => {Add commentMore actions
-      img.src = 'https://images.weserv.nl/?url=' + encodeURIComponent(img.src);
-    });
-  });
-</script>
 <header class="site-header">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +14,7 @@
             -webkit-backdrop-filter: blur(6px);
             transition: background-color 0.3s ease, color 0.3s ease;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         
         .blog-link:hover {
@@ -37,13 +30,15 @@
         }
 
         .wrapper {
-            display: flex;
-            justify-content: space-between; /* 修改：导航靠右 */
-            align-items: center;
-            padding: 1rem 2rem;
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
+          display: flex;
+          justify-content: space-between; /* 左右两端对齐 */
+          align-items: center;
+          padding: 1rem 2rem;
+          background: #fff;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          position: relative;
+          width: 100%; /* ✅ 确保撑满 */
+          box-sizing: border-box; /* ✅ 防止 padding 导致溢出 */
         }
 
         .site-title {
@@ -55,6 +50,7 @@
 
         .site-nav {
             position: relative;
+            flex-shrink: 0;
         }
 
         /* 导航触发区域 */
@@ -219,3 +215,11 @@
         </nav>
     </div>
 </header>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[src*="mmbiz.qpic.cn"]');
+    images.forEach(img => {Add commentMore actions
+      img.src = 'https://images.weserv.nl/?url=' + encodeURIComponent(img.src);
+    });
+  });
+</script>
