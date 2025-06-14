@@ -4,7 +4,7 @@
     <style>
         .wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* 修改：导航靠右 */
             align-items: center;
             padding: 1rem 2rem;
             background: #fff;
@@ -64,9 +64,12 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: white;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.25); /* 更高透明度 */
+            backdrop-filter: blur(16px) saturate(180%); /* 更强的模糊 + 饱和度提升 */
+            -webkit-backdrop-filter: blur(16px) saturate(180%); /* Safari 支持 */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* 更深的阴影增强立体感 */
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.18); /* 添加边框增强玻璃质感 */
             min-width: 200px;
             opacity: 0;
             transform: translateY(-10px);
