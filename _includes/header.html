@@ -9,7 +9,7 @@
             font-weight: 600;
             color: #333;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1rem; /* 增加垂直padding保持一致 */
             border-radius: 8px;
             background: rgba(255,255,255,0.6);
             backdrop-filter: blur(6px);
@@ -17,7 +17,11 @@
             transition: background-color 0.3s ease, color 0.3s ease;
             white-space: nowrap;
             flex-shrink: 0;
-            text-align: left; /* 左对齐 */
+            text-align: left;
+            display: flex; /* 添加flex布局 */
+            align-items: center; /* 垂直居中 */
+            min-height: 44px; /* 设置最小高度 */
+            box-sizing: border-box; /* 添加盒模型 */
         }
         
         .blog-link:hover {
@@ -28,20 +32,21 @@
         @media (max-width: 768px) {
             .blog-link {
                 font-size: 14px;
-                padding: 0.4rem 0.8rem;
+                padding: 0.6rem 0.8rem; /* 调整移动端padding */
+                min-height: 40px; /* 移动端稍小 */
             }
         }
 
         .wrapper {
           display: flex;
-          justify-content: space-between; /* 左右两端对齐 */
+          justify-content: space-between;
           align-items: center;
           padding: 1rem 2rem;
           background: #fff;
           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
           position: relative;
-          width: 100%; /* ✅ 确保撑满 */
-          box-sizing: border-box; /* ✅ 防止 padding 导致溢出 */
+          width: 100%;
+          box-sizing: border-box;
         }
 
         .site-title {
@@ -57,14 +62,14 @@
           flex-shrink: 0;
           justify-content: flex-end;
           align-items: center;
-          flex-grow: 1; /* ✅ 让它占满剩余空间，靠右 */
+          flex-grow: 1;
         }
 
-        /* 导航触发区域 */
+        /* 导航触发区域 - 修复高度一致性 */
         .nav-trigger-area {
-            width: 150px; /* 或 100% 如果外层容器限制好了宽度 */
-            justify-content: flex-start; /* 内容靠左 */
-            padding: 8px 2px;
+            width: 150px;
+            justify-content: flex-start;
+            padding: 0.75rem 12px; /* 与blog-link保持一致的padding */
             cursor: pointer;
             border-radius: 8px;
             font-size: 14px;
@@ -73,18 +78,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .nav-trigger-area,
-        .page-link {
-            min-height: 30px;
-            display: flex;
-            align-items: left;
+            min-height: 44px; /* 与blog-link保持一致 */
+            box-sizing: border-box;
         }
 
         .nav-trigger-area:hover {
             background-color: #f0f0f0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 悬停加深阴影 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .nav-trigger-area::after {
@@ -113,13 +113,13 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95); /* 桌面端简化毛玻璃效果 */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            min-width: 150px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            min-width: 180px; /* 增加最小宽度 */
             opacity: 0;
             transform: translateY(-10px);
             pointer-events: none;
@@ -127,27 +127,38 @@
             z-index: 1000;
             overflow: hidden;
         }
-        /* 🌐 对 backdrop-filter 兼容性不好的设备做降级处理 */
-      @media (max-width: 768px) {
-            .drawer {
-                position: fixed;                /* ✅ 改为固定在页面右侧，而不是导航元素里 */
-                top: 70px;                      /* ✅ 离顶部一点位置（根据 header 高度调整） */
-                right: 0;
-                width: 55vw;
-                max-width: 80px;
-                background: rgba(255, 255, 255, 0.95);
-                border-radius: 8px 0 0 8px;
-                box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-                z-index: 9999;
-                padding: 0.8rem 0;
-                overflow-y: auto;
-                max-height: 70vh;
-                border: 1px solid #e0e0e0;
+
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .wrapper {
+                padding: 0.8rem 1rem; /* 减少移动端padding */
             }
-    
-            .page-link {
-                font-size: 14px; /* 字体稍小适配小屏 */
-                padding: 4px 6px;
+
+            .nav-trigger-area {
+                width: 100px; /* 移动端缩小宽度 */
+                padding: 0.6rem 8px;
+                min-height: 40px;
+            }
+
+            .nav-trigger-area::after {
+                font-size: 12px; /* 移动端字体稍小 */
+            }
+
+            .drawer {
+                position: fixed;
+                top: 80px; /* 根据header高度调整 */
+                right: 10px; /* 稍微离右边缘一点 */
+                width: 160px; /* 固定合理宽度 */
+                max-width: none;
+                background: rgba(255, 255, 255, 0.98); /* 移动端简化毛玻璃 */
+                backdrop-filter: none; /* 移动端关闭毛玻璃效果 */
+                -webkit-backdrop-filter: none;
+                border-radius: 12px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+                z-index: 9999;
+                padding: 0.5rem 0;
+                max-height: 60vh;
+                border: 1px solid #e0e0e0;
             }
         }
 
@@ -158,7 +169,7 @@
             pointer-events: auto;
         }
 
-        /* 导航链接样式 */
+        /* 导航链接样式 - 统一高度 */
         .page-link {
             display: block;
             padding: 12px 20px;
@@ -167,6 +178,12 @@
             border-bottom: 1px solid #f0f0f0;
             transition: all 0.2s ease;
             position: relative;
+            font-size: 14px; /* 统一字体大小 */
+            line-height: 1.4; /* 统一行高 */
+            min-height: 40px; /* 设置最小高度 */
+            display: flex; /* 使用flex布局 */
+            align-items: center; /* 垂直居中 */
+            box-sizing: border-box;
         }
 
         .page-link:last-child {
@@ -183,18 +200,24 @@
         .page-link:hover::before {
             content: "→";
             position: absolute;
-            left: 4px;
+            left: 8px;
             color: #007bff;
         }
 
-        /* 响应式设计 */
+        /* 移动端链接样式优化 */
         @media (max-width: 768px) {
-            .wrapper {
-                padding: 0.5rem;
+            .page-link {
+                font-size: 13px;
+                padding: 10px 16px;
+                min-height: 36px;
             }
             
-            .drawer {
-                right: -2px;
+            .page-link:hover {
+                padding-left: 20px;
+            }
+            
+            .page-link:hover::before {
+                left: 6px;
             }
         }
 
