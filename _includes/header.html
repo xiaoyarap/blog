@@ -46,15 +46,18 @@
 
         .site-title {
             font-size: 1.5rem;
-            font-weight: bold;
             text-decoration: none;
             color: #333;
+            flex-shrink: 0;
         }
 
         .site-nav {
-            position: relative;
-            flex-shrink: 0;
-            justify-content: flex-end;
+          display: flex;
+          position: relative;
+          flex-shrink: 0;
+          justify-content: flex-end;
+          align-items: center;
+          flex-grow: 1; /* ✅ 让它占满剩余空间，靠右 */
         }
 
         /* 导航触发区域 */
