@@ -1,7 +1,9 @@
-<header class="site-header">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
         .blog-link {
             font-size: 1rem;
             font-weight: 600;
@@ -190,17 +192,20 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
     </style>
-  <div class="wrapper">
-        <a href="/" class="blog-link">Blog 首页</a>
-        <nav class="site-nav">
-            <div class="nav-trigger-area">
-                <div class="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <div class="drawer">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrapper">
+      <a href="/" class="blog-link">Blog 首页</a>
+      <nav class="site-nav">
+        <div class="nav-trigger-area">
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="drawer">
                 <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708249854717526017#wechat_redirect">健康营养</a>
                 <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2679158701706002433#wechat_redirect">事业机会</a>
                 <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708248415014289409#wechat_redirect">情感博客</a>
@@ -212,14 +217,17 @@
                 <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708249292227805186#wechat_redirect">读书笔记</a>
                 <a class="page-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2480908578841772032#wechat_redirect">电影</a>
             </div>
-        </nav>
+      </nav>
     </div>
-</header>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img[src*="mmbiz.qpic.cn"]');
-    images.forEach(img => {Add commentMore actions
-      img.src = 'https://images.weserv.nl/?url=' + encodeURIComponent(img.src);
+  </header>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const images = document.querySelectorAll('img[src*="mmbiz.qpic.cn"]');
+      images.forEach(img => {
+        img.src = 'https://images.weserv.nl/?url=' + encodeURIComponent(img.src);
+      });
     });
-  });
-</script>
+  </script>
+</body>
+</html>
