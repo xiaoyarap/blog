@@ -104,7 +104,7 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.18);
-            min-width: 200px;
+            min-width: 150px;
             opacity: 0;
             transform: translateY(-10px);
             pointer-events: none;
@@ -118,13 +118,13 @@
                 position: fixed;                /* ✅ 改为固定在页面右侧，而不是导航元素里 */
                 top: 70px;                      /* ✅ 离顶部一点位置（根据 header 高度调整） */
                 right: 0;
-                width: 85vw;
-                max-width: 260px;
+                width: 55vw;
+                max-width: 80px;
                 background: rgba(255, 255, 255, 0.95);
-                border-radius: 12px 0 0 12px;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                border-radius: 8px 0 0 8px;
+                box-shadow: 0 6px 16px rgba(0,0,0,0.15);
                 z-index: 9999;
-                padding: 0.5rem 0;
+                padding: 0.8rem 0;
                 overflow-y: auto;
                 max-height: 70vh;
                 border: 1px solid #e0e0e0;
@@ -132,7 +132,7 @@
     
             .page-link {
                 font-size: 14px; /* 字体稍小适配小屏 */
-                padding: 10px 16px;
+                padding: 4px 6px;
             }
         }
 
@@ -168,19 +168,18 @@
         .page-link:hover::before {
             content: "→";
             position: absolute;
-            left: 8px;
+            left: 4px;
             color: #007bff;
         }
 
         /* 响应式设计 */
         @media (max-width: 768px) {
             .wrapper {
-                padding: 1rem;
+                padding: 0.5rem;
             }
             
             .drawer {
-                right: -10px;
-                min-width: 180px;
+                right: -2px;
             }
         }
 
