@@ -68,6 +68,13 @@
           flex-grow: 1;
         }
 
+        @media (max-width: 768px) {
+            .site-nav {
+                flex-grow: 0; /* 移动端不需要占据剩余空间 */
+                justify-content: center; /* 移动端居中对齐 */
+            }
+        }
+
         /* 导航触发区域 */
         .nav-trigger-area {
             justify-content: flex-start;
@@ -194,10 +201,11 @@
                 backdrop-filter: none;
                 -webkit-backdrop-filter: none;
                 border-radius: 0;
+                border: none; /* 明确移除边框 */
                 /* 确保与blog-link垂直对齐 */
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                justify-content: flex-start; /* 左对齐内容 */
             }
 
             /* 移动端移除hover效果 */
@@ -206,9 +214,12 @@
                 color: inherit;
             }
 
-            /* 移动端隐藏"导航"文字 */
+            /* 移动端显示"导航"文字 */
             .nav-trigger-area::after {
-                display: none;
+                content: "导航";
+                font-size: 14px;
+                color: #333;
+                display: inline; /* 移动端也显示导航文字 */
             }
 
             /* 确保blog-link在移动端也正确对齐 */
