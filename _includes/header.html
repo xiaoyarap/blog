@@ -257,7 +257,7 @@
 
             /* 移动端图标显示和调整 */
             .menu-icon {
-                display: flex;
+                display: flex !important;
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
@@ -268,11 +268,11 @@
 
             .menu-icon span {
                 display: block;
-                width: 16px;
-                height: 2px;
-                margin: 2px 0;
-                background-color: #4b0082;;
-                border-radius: 1px;
+                width: 20px; /* 增加线条长度 */
+                height: 3px; /* 增加线条粗细 */
+                margin: 2.5px 0; /* 稍微增加间距 */
+                background-color: #1a1a1a; /* 使用更高对比度的深色 */
+                border-radius: 1.5px; /* 略微增大圆角 */
                 transition: background-color 0.3s ease, transform 0.3s ease;
             }
 
