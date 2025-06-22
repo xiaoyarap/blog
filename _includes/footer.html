@@ -104,12 +104,12 @@
             position: absolute;
             bottom: 100%;
             left: 50%;
-            transform: translateX(-50%) translateY(10px);
+            transform: translateX(-50%) translateY(15px); /* 增加垂直偏移 */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s ease, transform 0.3s ease;
             background: white;
-            padding: 10px;
+            padding: 15px; /* 增加内边距 */
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             z-index: 10;
@@ -119,13 +119,14 @@
         .visit-btn.qr-active .qr-code {
             opacity: 1;
             visibility: visible;
-            transform: translateX(-50%) translateY(0);
+            transform: translateX(-50%) translateY(0); /* 悬浮时平滑移回 */
             pointer-events: auto;
         }
         .qr-code img {
-            width: 120px;
-            height: 120px;
+            width: 100px; /* 减少默认大小，减少拥挤 */
+            height: 100px;
             display: block;
+            margin: 0 auto; /* 居中图片 */
         }
         .qr-hint {
             display: none;
@@ -146,17 +147,17 @@
             .card-icon { width: 45px; height: 45px; font-size: 22px; }
             .visit-btn { font-size: 13px; padding: 8px 18px; }
             .footer-content { grid-template-columns: 1fr; gap: 15px; }
-            .qr-code { width: 100px; }
-            .qr-code img { width: 100px; height: 100px; }
+            .qr-code { width: 90px; padding: 10px; } /* 移动端缩小二维码容器 */
+            .qr-code img { width: 90px; height: 90px; }
             .marykay-btn .qr-hint { display: inline; }
-            .marykay-btn:hover .qr-code { display: none; } /* Disable hover on mobile */
+            .marykay-btn:hover .qr-code { display: none; } /* 移动端禁用 hover */
         }
         @media (max-width: 480px) {
             .site-footer { padding: 30px 0 15px; }
             .personal-brand { padding: 20px 10px; }
             .brand-title { font-size: 20px; }
             .brand-subtitle { font-size: 13px; }
-            .qr-code { bottom: calc(100% + 5px); }
+            .qr-code { bottom: calc(100% + 10px); } /* 增加移动端下间距 */
         }
 
         /* Non-critical CSS */
