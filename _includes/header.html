@@ -3,23 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-        body {
-          font-family: Arial, sans-serif;
-          margin: 0;
-          padding: 0;
-          line-height: 1.6;
-          color: #333;
-        }        
-        header {
-          background: #f4f4f4;
-          padding: 20px;
-          text-align: center;
+<style>       
+        .site-header {
+          background: #fff;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+          padding: 1rem 2rem;
         }
-        header h1 {
+        
+        .header-wrapper {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+        
+        .brand {
+          flex: 1;
+          min-width: 200px;
+        }
+        
+        .brand h1 {
           margin: 0;
+          font-size: 1.8rem;
           color: #2c3e50;
         }
+        
+        .brand p {
+          margin: 4px 0 0;
+          font-size: 1rem;
+          color: #666;
+        }
+        
+        .nav-container {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+        
         .blog-link {
             font-size: 1rem;
             font-weight: 600;
@@ -384,9 +404,12 @@
 </head>
 <body>
   <header class="site-header">
-    <h1>小亚说</h1>
-    <p>专业护肤与健康营养服务</p>
-    <div class="wrapper">
+  <div class="wrapper header-wrapper">
+    <div class="brand">
+      <h1>小亚说</h1>
+      <p>专业护肤与健康营养服务</p>
+    </div>
+    <div class="nav-container">
       <a href="https://xiaoyarap.github.io/blog/" class="blog-link">Blog 首页</a>
       <nav class="site-nav">
         <div class="nav-trigger-area" id="navTrigger">
@@ -410,6 +433,7 @@
         </div>
       </nav>
     </div>
+  </div>
   </header>
 
   <!-- 遮罩层 -->
