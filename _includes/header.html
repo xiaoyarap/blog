@@ -231,9 +231,6 @@
             /* 移动端nav-trigger-area样式 - 只显示图标 */
             .nav-trigger-area {
                 padding: 0.5rem;
-                min-height: 40px;
-                height: 40px;
-                width: 40px;
                 /* 移动端移除背景效果，只保留图标 */
                 backdrop-filter: none;
                 background: transparent;
@@ -243,11 +240,24 @@
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
+                padding: 0.75rem 1rem;
+                transition: background-color 0.3s ease;
+                display: flex;
+                gap: 8px;
+                min-height: 44px;
+                height: 44px;
+                box-sizing: border-box;
+                position: relative;
             }
 
             /* 移动端悬停效果 - 轻微的背景色变化 */
             .nav-trigger-area:active {
                 background-color: #7a42f4;;
+            }
+
+            /* 移动端隐藏"导航"文字 */
+            .nav-trigger-area::after {
+                display: none;
             }
 
             /* 移动端图标显示和调整 */
