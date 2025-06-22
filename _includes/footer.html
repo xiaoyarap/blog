@@ -151,12 +151,11 @@
         /* QR Code Styles (MaryKay only) */
         .qr-code {
             position: absolute;
-            bottom: 100%;
+            top: 100%;
             left: 50%;
-            transform: translateX(-50%) translateY(10px);
+            transform: translateX(-50%);
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, transform 0.3s ease;
             background: #fff;
             width: 140px;
             height: 140px;
@@ -164,6 +163,7 @@
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
             z-index: 20;
+            transition: all 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -179,6 +179,10 @@
             color: rgba(255, 255, 255, 0.9);
             margin-left: 10px;
             animation: pulse 1.5s infinite;
+        }
+        .marykay-btn {
+            position: relative;
+            cursor: pointer;
         }
         .marykay-btn:hover .qr-code,
         .marykay-btn.qr-active .qr-code {
@@ -433,14 +437,14 @@
                         </div>
                         <h3 class="card-title">玫琳凯商城</h3>
                         <p class="card-username">品质护肤，精选护肤产品，开启你的美丽</p>
-                        <a href="https://www.marykay.com.cn" class="visit-btn marykay-btn" rel="noopener" aria-label="访问xiaoyarap的玫琳凯商城，点击显示二维码" aria-expanded="false" itemprop="url">
+                        <div class="visit-btn marykay-btn" aria-label="访问商城二维码" tabindex="0">
                             <span class="btn-icon">💄</span>
-                            去商城
+                        去商城
                             <span class="qr-hint">扫码</span>
-                            <div class="qr-code">
-                                <img src="https://xiaoyarap.github.io/blog/images/marykay-qr.png" alt="扫描二维码访问xiaoyarap的玫琳凯商城" aria-hidden="true">
-                            </div>
-                        </a>
+                        </div>
+                        <div class="qr-code" id="marykayQR">
+                            <img src="https://xiaoyarap.github.io/blog/images/marykay-qr.png" alt="扫描二维码访问xiaoyarap的玫琳凯商城">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -517,15 +521,23 @@
 
             // Mobile tap toggle for QR code (MaryKay only)
             const maryKayBtn = document.querySelector('.marykay-btn');
+            const maryKayQR = document.getElementById('marykayQR');
             let isQrVisible = false;
-
+    
             maryKayBtn.addEventListener('click', (e) => {
-                if ('ontouchstart' in window || window.matchMedia('(max-width: 768px)').matches) {
-                    e.preventDefault();
-                    isQrVisible = !isQrVisible;
-                    maryKayBtn.classList.toggle('qr-active', isQrVisible);
-                    maryKayBtn.setAttribute('aria-expanded', isQrVisible);
-                }
+            e.preventDefault();
+            isQrVisible = !isQrVisible;
+            maryKayQR.style.opacity = isQrVisible ? '1' : '0';
+            maryKayQR.style.visibility = isQrVisible ? 'visible' : 'hidden';
+            });
+    
+            // 点击页面其他地方关闭二维码
+            document.addEventListener('click', (e) => {
+            if (!maryKayBtn.contains(e.target) && !maryKayQR.contains(e.target)) {
+                    isQrVisible = false;
+                    maryKayQR.style.opacity = '0';
+                    maryKayQR.style.visibility = 'hidden';
+            }
             });
 
             // Close QR code when tapping outside on mobile
