@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="小亚说公众号提供专业护肤与健康营养服务，专注玫琳凯产品、科学减脂、情感指南及旅行攻略，助您焕发自信与活力！">
   <meta name="twitter:image" content="https://xiaoyarap.github.io/images/og-image.jpg">
   <title>小亚说 - 护肤与健康营养专业服务</title>
-  <style>
+    <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -30,7 +30,12 @@
       color: #333;
     }
     nav {
-      background: linear-gradient(135deg, #f5e6ff 0%, #e0e7ff 100%);
+      background: transparent;
+      padding: 0;
+    }
+    
+    .nav-wrapper {
+      background: linear-gradient(135deg, #d4bfff 0%, #c1d3ff 100%);
       padding: 10px 0;
     }
     nav a {
@@ -123,6 +128,9 @@
       width: 100%;
       margin-top: 40px;
     }
+    .menu-icon span {
+      background-color: #4b0082 !important;
+    }
     @media (max-width: 600px) {
       .service-box {
         width: 100%;
@@ -145,12 +153,14 @@
 </head>
 <body>
     {% include header.html %}
-  <nav>
-    <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708249854717526017#wechat_redirect">健康营养</a>
-    <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2679158701706002433#wechat_redirect">事业机会</a>
-    <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708248415014289409#wechat_redirect">情感博客</a>
-    <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=3950017545632923649#wechat_redirect">我的故事</a>
-  </nav>
+  <div class="nav-wrapper">
+    <nav>
+      <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708249854717526017#wechat_redirect">健康营养</a>
+      <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2679158701706002433#wechat_redirect">事业机会</a>
+      <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708248415014289409#wechat_redirect">情感博客</a>
+      <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=3950017545632923649#wechat_redirect">我的故事</a>
+    </nav>
+  </div>
   <div class="container">
     <div class="intro">
       <h2>欢迎体验小亚说的专业服务</h2>
