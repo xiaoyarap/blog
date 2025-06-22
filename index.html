@@ -137,11 +137,7 @@
         background: linear-gradient(135deg, #d4bfff 0%, #c1d3ff 100%);
         padding: 10px 10px; /* 保证有内边距 */
       }
-      nav a {
-        display: block;
-        margin: 10px 0;
-        text-align: center;
-      }
+
       footer {
         position: relative;
       }
@@ -149,6 +145,38 @@
         float: none;
         display: block;
         margin-top: 5px;
+      }
+      .menu-icon {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        width: 30px;
+        height: 24px;
+        z-index: 1000;
+        position: relative;
+      }
+    
+      .menu-icon span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        margin: 3px 0;
+        background-color: #4b0082;
+        border-radius: 1px;
+      }
+    
+      nav a {
+        display: none; /* 如果你希望移动端只显示 menu-icon */
+      }
+    
+      .drawer {
+        display: none;
+      }
+    
+      .drawer.active {
+        display: block;
       }
     }
   </style>
