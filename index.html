@@ -29,10 +29,6 @@
       line-height: 1.6;
       color: #333;
     }
-    nav {
-      background: transparent;
-      padding: 0;
-    }
     
     .nav-wrapper {
       background: linear-gradient(135deg, #d4bfff 0%, #c1d3ff 100%);
@@ -134,6 +130,10 @@
     @media (max-width: 600px) {
       .service-box {
         width: 100%;
+      }
+      .nav-wrapper {
+        background: linear-gradient(135deg, #d4bfff 0%, #c1d3ff 100%);
+        padding: 10px 10px; /* 保证有内边距 */
       }
       nav a {
         display: block;
