@@ -200,7 +200,6 @@
             z-index: -1;
         }
 
-        /* 桌面端悬停显示 */
         @media (min-width: 769px) {
             .site-nav:hover .drawer {
                 opacity: 1;
@@ -261,6 +260,7 @@
                 flex-direction: column;
                 justify-content: space-between;
                 align-items: center;
+                opacity: 1;
                 margin: 2px 0;
                 height: 18px;
                 width: 24px;  /* 可适配 nav-trigger-area 的居中区域 */
@@ -273,6 +273,7 @@
                 margin: 2.5px 0; /* 稍微增加间距 */
                 background-color: #1a1a1a; /* 使用更高对比度的深色 */
                 border-radius: 1.5px; /* 略微增大圆角 */
+                opacity: 1;
                 transition: background-color 0.3s ease, transform 0.3s ease;
             }
 
@@ -393,12 +394,6 @@
             opacity: 1;
         }
 
-        /* 添加一些视觉反馈 */
-        @media (max-width: 768px) {
-            .nav-trigger-area:active .menu-icon span {
-                background-color: #7a42f4;;
-            }
-        }
     </style>
 </head>
 <body>
