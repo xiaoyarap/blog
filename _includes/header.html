@@ -236,6 +236,7 @@
                 width: 40px;
                 /* 移动端移除背景效果，只保留图标 */
                 backdrop-filter: none;
+                background: transparent;
                 -webkit-backdrop-filter: none;
                 border-radius: 6px;
                 /* 居中显示图标 */
@@ -393,7 +394,12 @@
             display: block;
             opacity: 1;
         }
-
+        /* 添加一些视觉反馈 */
+        @media (max-width: 768px) {
+            .nav-trigger-area:active .menu-icon span {
+                background-color: #7a42f4;;
+            }
+        }
     </style>
 </head>
 <body>
