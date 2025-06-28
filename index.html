@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -6,7 +8,7 @@
   <meta name="description" content="小亚说公众号提供专业护肤与健康营养服务，专注玫琳凯产品、科学减脂、情感指南及旅行攻略，助您焕发自信与活力！">
   <meta name="keywords" content="小亚说公众号, 玫琳凯, 护肤, 健康营养, 科学减脂, 情感指南, 旅行攻略, 生活方式">
   <meta name="author" content="小亚说">
-  <link rel="canonical" href="https://xiaoyarap.github.io/">
+  <link rel="canonical" href="https://xiaoyarap.github.io/blog">
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="小亚说 - 护肤与健康营养专业服务">
   <meta property="og:description" content="小亚说公众号提供专业护肤与健康营养服务，专注玫琳凯产品、科学减脂、情感指南及旅行攻略，助您焕发自信与活力！">
@@ -150,6 +152,7 @@
   </style>
 </head>
 <body>
+         {% include header.html %}
   <div class="nav-wrapper">
     <nav>
       <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=1708249854717526017#wechat_redirect">健康营养</a>
@@ -328,14 +331,14 @@
       </div>
     </div>
   </div>
-
+ {% include footer.html %}
   <!-- JSON-LD Structured Data for Website -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "小亚说",
-    "url": "https://xiaoyarap.github.io/",
+    "url": "https://xiaoyarap.github.io/blog",
     "description": "小亚说公众号提供专业护肤与健康营养服务，专注玫琳凯产品、科学减脂、情感指南及旅行攻略。",
     "potentialAction": {
       "@type": "SearchAction",
@@ -427,5 +430,6 @@
   }
   </script>
 
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93e542f548f18bb8',t:'MTc0NzAwNDEwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
