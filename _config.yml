@@ -22,7 +22,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "post"
+      layout: "minimal"  # 改为你的minimal布局
       author:
         name: "小亚说"
         url: "https://xiaoyarap.github.io/blog"
