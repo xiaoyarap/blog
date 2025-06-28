@@ -5,12 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }}</title>
+  <style>
+   .blog-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    </style>
 </head>
 <body>
   {% include header.html %}
-  
-  {{ content }}
-  
+  <div class="blog-container">
+    {{ content }}
+  </div>
   {% include footer.html %}
 </body>
 </html>
