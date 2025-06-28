@@ -46,6 +46,15 @@
           align-items: center;
           gap: 1rem;
         }
+
+        @media (max-width: 768px) {
+            .nav-container {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem; /* Match wrapper gap for consistency */
+              flex-shrink: 0; /* Prevent stretching */
+            }
+        }
         
         .blog-link {
             font-size: 1rem;
