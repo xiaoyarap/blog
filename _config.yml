@@ -22,16 +22,6 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "小亚说"
       author:
         name: "小亚说"
         url: "https://xiaoyarap.github.io/blog"
-
-# Plugins
-plugins:
-  - jekyll-seo-tag
-
-# Optional: SEO tag configuration
-seo:
-  date: true  # Ensure datePublished is included
-  author: true # Ensure author is included
