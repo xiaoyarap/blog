@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }}</title>
   <style>
-   .blog-container {
+    body {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    .blog-container {
       max-width: 800px;
       margin: 20px auto;
-      padding: 0 20px;
+      padding: 0 5%;
     }
-    </style>
+    .blog-container img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+    @media screen and (max-width: 600px) {
+      body {
+        font-size: 14px;
+      }
+      .blog-container {
+        padding: 0 10px;
+      }
+      .blog-container img {
+        max-width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
   {% include header.html %}
