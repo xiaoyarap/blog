@@ -1,33 +1,26 @@
-{% if page.layout == 'post' or page.collection == 'posts' %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "{{ page.title | escape }}",
-  "url": "{{ page.url | absolute_url }}",
-  "datePublished": "{% if page.date %}{{ page.date | date_to_xmlschema }}{% else %}{{ site.time | date_to_xmlschema }}{% endif %}",
-  {% if page.modified_date or page.last_modified_at %}
-  "dateModified": "{{ page.modified_date | default: page.last_modified_at | date_to_xmlschema }}",
+  "datePublished": "{{ page.date | default: "now" | date_to_xmlschema }}",
+  {% if page.modified_date %}
+  "dateModified": "{{ page.modified_date | date_to_xmlschema }}",
   {% endif %}
   "author": {
     "@type": "Person",
-    "name": "{{ page.author | default: site.author }}"
+    "name": "{{ page.author.name | default: site.author.name | default: "xiaoyarap" | escape }}",
+    {% if page.author.url %}
+    "url": "{{ page.author.url | escape }}"
+    {% elsif site.author.url %}
+    "url": "{{ site.author.url | escape }}"
+    {% endif %}
   },
-  "publisher": {
-    "@type": "Person", 
-    "name": "{{ site.author }}"
-  },
-  "description": "{{ page.description | default: page.excerpt | strip_html | truncate: 160 | escape }}",
-  {% if page.image %}
-  "image": {
-    "@type": "ImageObject",
-    "url": "{{ page.image | absolute_url }}"
-  },
-  {% endif %}
+  "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  }
+    "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
+  },
+  "description": "{{ page.excerpt | default: site.description | strip_html | escape }}"
 }
 </script>
-{% endif %}
