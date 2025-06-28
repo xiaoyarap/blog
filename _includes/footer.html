@@ -379,7 +379,6 @@
             }
         }
     </style>
-{% include structured-data.html %}
 </head>
 <body>
     <footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter">
@@ -472,6 +471,9 @@
                 <p>© 2025 小亚说. 保留所有权利。</p>
             </div>
         </div>
+    {% if page.type == 'BlogPosting' or page.type == 'SocialMediaPosting' %}
+      {% include structured-data.html %}
+    {% endif %}
     </footer>
 
     <div class="visit-success" id="visitSuccess" role="alert">感谢关注！正在跳转...</div>

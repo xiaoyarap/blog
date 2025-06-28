@@ -1,8 +1,12 @@
+{% comment %}
+structured-data.html
+Dynamically generates JSON-LD for BlogPosting or SocialMediaPosting based on page.type
+{% endcomment %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ page.title | default: 'Untitled Post' | escape }}",
+  "@type": "{{ page.type | default: 'BlogPosting' }}",
+  "headline": "{{ page.title | default: site.title | default: 'MaryKay xiaoyarap Post' | escape }}",
   "datePublished": "{{ page.date | default: 'now' | date_to_xmlschema }}",
   {% if page.modified_date %}
   "dateModified": "{{ page.modified_date | date_to_xmlschema }}",
@@ -16,6 +20,11 @@
     ,"url": "{{ site.author.url | escape }}"
     {% endif %}
   },
+  {% if page.type == 'SocialMediaPosting' and page.image %}
+  "image": "{{ page.image | escape }}",
+  {% elsif site.image %}
+  "image": "{{ site.image | escape }}",
+  {% endif %}
   "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
   "mainEntityOfPage": {
     "@type": "WebPage",

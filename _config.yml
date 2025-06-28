@@ -7,6 +7,7 @@ title: "小亚说"
 description: "小亚说公众号提供专业护肤与健康营养服务"
 author: "小亚说"
 twitter: "https://twitter.com/xiaoyarap" 
+image: https://xiaoyarap.github.io/blog/images/logo.jpg
 
 # 默认的前置matter
 defaults:
@@ -25,3 +26,4 @@ defaults:
       author:
         name: "小亚说"
         url: "https://xiaoyarap.github.io/blog"
+      image: https://xiaoyarap.github.io/blog/images/logo.jpg
