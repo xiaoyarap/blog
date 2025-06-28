@@ -247,7 +247,6 @@
 
             /* 移动端nav-trigger-area样式 - 只显示图标 */
             .nav-trigger-area {
-                padding: 0;
                 /* 移动端移除背景效果，只保留图标 */
                 backdrop-filter: none;
                 background: transparent;
@@ -266,12 +265,10 @@
                 box-sizing: border-box;
                 position: relative;
                 z-index: 1001;
+                overflow: visible; /* Prevent clipping */
+                visibility: visible; /* Ensure visibility */
             }
 
-
-  .menu-icon {
-   
-  }
             /* 移动端悬停效果 - 轻微的背景色变化 */
             .nav-trigger-area:active {
                 background-color: #7a42f4;;
@@ -287,13 +284,14 @@
                 margin: 0; /* 移除上下偏移 */
                 display: flex !important;
                 flex-direction: column;
-                gap: 4px;
+                gap: 3px;
                 justify-content: center;
                 align-items: center;
                 opacity: 1;
                 margin: 2px 0;
-                height: 24px;
+                height: 18px;
                 width: 24px;  /* 可适配 nav-trigger-area 的居中区域 */
+                visibility: visible;
             }
 
             .menu-icon span {
