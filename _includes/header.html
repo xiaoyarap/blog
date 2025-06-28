@@ -297,7 +297,7 @@
                 justify-content: center;
                 align-items: center;
                 opacity: 1;
-                height: 24px;
+                height: 20px;
                 width: 24px;  /* 可适配 nav-trigger-area 的居中区域 */
                 visibility: visible;
             }
@@ -307,7 +307,7 @@
                 width: 20px; /* 增加线条长度 */
                 height: 3px; /* 增加线条粗细 */
                 background-color: #4b0082; /* 使用更高对比度的深色 */
-                border-radius: 1.5px; /* 略微增大圆角 */
+                border-radius: 1.25px; /* 略微增大圆角 */
                 border: none; 
                 opacity: 1;
                 transition: background-color 0.3s ease, transform 0.3s ease;
@@ -318,7 +318,7 @@
                 top: 60px;
                 right: 8px;
                 width: auto;
-                min-width: fit-content;
+                min-width: 180px;
                 max-width: calc(100vw - 16px);
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: none;
@@ -326,8 +326,8 @@
                 border-radius: 8px;
                 box-shadow: 0 6px 20px rgba(0,0,0,0.2);
                 z-index: 9999;
-                padding: 0.3rem 0;
-                max-height: 60vh;
+                padding: 0.5rem; 
+                max-height: 80vh;
                 border: 1px solid #e0e0e0;
                 opacity: 0;
                 transform: translateY(-10px);
@@ -394,9 +394,9 @@
 
         @media (max-width: 768px) {
             .page-link {
-                font-size: 12px;
-                padding: 6px 10px;
-                min-height: 30px;
+                font-size: 14px;
+                padding: 10px 12px;
+                min-height: 44px;
                 text-align: left;
                 justify-content: flex-start;
             }
