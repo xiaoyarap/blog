@@ -4,6 +4,9 @@ baseurl: "/blog"
 # 站点基本信息
 title: "小亚说"
 description: "小亚说公众号提供专业护肤与健康营养服务"
+# 完全不使用任何主题
+theme: null
+plugins: []  # 清空所有插件
 
 author:
   name: "小亚说"
