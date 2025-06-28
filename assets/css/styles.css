@@ -1,3 +1,4 @@
+/* Header Styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -385,5 +386,353 @@ body {
 @media (max-width: 768px) {
     .nav-trigger-area:active .menu-icon span {
         background-color: #7a42f4;;
+    }
+}
+
+/* Footer Styles */
+.site-footer {
+    background: linear-gradient(135deg, #f5e6ff 0%, #e0e7ff 100%);
+    color: #333;
+    padding: 60px 0 30px;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+}
+.footer-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/* Personal Brand Section */
+.personal-brand {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.brand-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c2c54;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 12px;
+}
+.brand-subtitle {
+    font-size: 16px;
+    color: #5c5c8a;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+/* Social Links Grid */
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.social-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.social-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+.card-icon:hover {
+    transform: scale(1.1);
+}
+.twitter-icon { background: linear-gradient(135deg, #1DA1F2, #4da6ff); }
+.bilibili-icon { background: linear-gradient(135deg, #fb7299, #ff8fb1); }
+.xiaohongshu-icon { background: linear-gradient(135deg, #f33, #ff6666); }
+.marykay-icon { background: linear-gradient(135deg, #ff69b4, #ff1493); }
+.card-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c2c54;
+    margin-bottom: 8px;
+}
+.card-username {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 8px;
+}
+.card-description {
+    font-size: 14px;
+    color: #495057;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+/* Visit Button Styles */
+.visit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #fff;
+    min-width: 140px;
+    min-height: 48px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    position: relative;
+    touch-action: manipulation;
+}
+.visit-btn:active {
+    transform: scale(0.95);
+}
+.twitter-btn { background: linear-gradient(45deg, #1DA1F2, #4da6ff); }
+.bilibili-btn { background: linear-gradient(45deg, #fb7299, #ff8fb1); }
+.xiaohongshu-btn { background: linear-gradient(45deg, #f33, #ff6666); }
+.marykay-btn { background: linear-gradient(45deg, #ff69b4, #ff1493); }
+.visit-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+.btn-icon {
+    margin-right: 8px;
+    font-size: 18px;
+}
+/* QR Code Styles (MaryKay only) */
+.qr-code {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    background: #fff;
+    width: 140px;
+    height: 140px;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.qr-code img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.qr-hint {
+    display: none;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-left: 10px;
+    animation: pulse 1.5s infinite;
+}
+.marykay-btn {
+    position: relative;
+    cursor: pointer;
+}
+.marykay-btn:hover .qr-code,
+.marykay-btn.qr-active .qr-code {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+@keyframes pulse {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.5; }
+}
+/* Footer Content */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin: 40px 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+.footer-section h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c2c54;
+    margin-bottom: 12px;
+}
+.footer-section p, .footer-section a {
+    font-size: 14px;
+    color: #495057;
+    text-decoration: none;
+    line-height: 1.7;
+    display: inline-block;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+.footer-section a:hover {
+    color: #ff69b4;
+    text-decoration: underline;
+}
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    padding-top: 24px;
+    font-size: 14px;
+    color: #6c757d;
+    position: relative;
+    z-index: 1;
+}
+/* Visit Success Notification */
+.visit-success {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #28a745, #2ecc71);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 10px;
+    display: none;
+    z-index: 1000;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 0.5s ease-out;
+}
+/* Animations */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.social-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+.social-card:nth-child(1) { animation-delay: 0.1s; }
+.social-card:nth-child(2) { animation-delay: 0.2s; }
+.social-card:nth-child(3) { animation-delay: 0.3s; }
+.social-card:nth-child(4) { animation-delay: 0.4s; }
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .social-links {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+    }
+    .personal-brand {
+        padding: 24px 16px;
+    }
+    .brand-title {
+        font-size: 24px;
+    }
+    .brand-subtitle {
+        font-size: 15px;
+    }
+}
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 40px 0 20px;
+    }
+    .social-links {
+        grid-template-columns: 1fr;
+    }
+    .social-card {
+        padding: 20px;
+    }
+    .card-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .visit-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+        min-width: 120px;
+    }
+    .qr-code {
+        width: 140px;
+        height: 140px;
+        padding: 10px;
+        bottom: calc(100% + 10px);
+        transform: translateX(-50%) translateY(0);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .marykay-btn.qr-active .qr-code {
+        opacity: 1;
+        visibility: visible;
+    }
+    .marykay-btn:hover .qr-code {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .marykay-btn .qr-hint {
+        display: inline;
+    }
+}
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 30px 0 15px;
+    }
+    .personal-brand {
+        padding: 20px 12px;
+    }
+    .brand-title {
+        font-size: 20px;
+    }
+    .brand-subtitle {
+        font-size: 14px;
+    }
+    .social-card {
+        padding: 16px;
+    }
+    .card-title {
+        font-size: 18px;
+    }
+    .visit-btn {
+        font-size: 13px;
+        padding: 8px 16px;
+        min-width: 100px;
+    }
+    .qr-code {
+        width: 120px;
+        height: 120px;
+        bottom: calc(100% + 8px);
+    }
+    .footer-section p, .footer-section a {
+        padding: 6px 8px;
+    }
+}
+/* Background Decoration */
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0.1;
+    z-index: 0;
+}
+/* Disable heavy effects on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+    .social-card, .visit-btn, .card-icon {
+        transition: none;
+        animation: none;
+    }
+    .qr-hint {
+        animation: none;
     }
 }
