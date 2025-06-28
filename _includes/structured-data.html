@@ -7,19 +7,21 @@ structured-data.html
   "@context": "https://schema.org",
   "@type": "{{ page.type | default: 'BlogPosting' }}",
   "headline": "{{ page.title | default: site.title | default: 'MaryKay xiaoyarap Post' | escape }}",
-  {% if page.date %}
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% endif %}
+  "datePublished": "{% if page.date %}{{ page.date | date_to_xmlschema }}{% else %}2024-06-01T00:00:00+08:00{% endif %}",
   {% if page.modified_date %}
   "dateModified": "{{ page.modified_date | date_to_xmlschema }}",
   {% endif %}
   "author": {
     "@type": "Person",
     "name": "{{ page.author.name | default: site.author.name | default: 'xiaoyarap' | escape }}",
+    {% if page.author.url or site.author.url %}
+    "url": "{{ page.author.url | default: site.author.url }}",
+    {% endif %}
     "sameAs": [
-      "https://twitter.com/xiaoyarap",
-      "https://www.xiaohongshu.com/user/profile/5b8271aad24e100001eb3dc8",
-      "https://space.bilibili.com/602243031"
+      {% assign sameas_links = page.author.sameAs | default: site.author.sameAs %}
+      {% for link in sameas_links %}
+        "{{ link }}"{% unless forloop.last %},{% endunless %}
+      {% endfor %}
     ]
   },
   {% if page.image %}

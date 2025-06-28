@@ -1,22 +1,22 @@
-# _config.yml
 url: "https://xiaoyarap.github.io"
 baseurl: "/blog"
 theme: minima
+
 # 站点基本信息
 title: "小亚说"
 description: "小亚说公众号提供专业护肤与健康营养服务"
-author: "小亚说"
-twitter: "https://twitter.com/xiaoyarap" 
-image: https://xiaoyarap.github.io/blog/images/logo.jpg
 
-# 默认的前置matter
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
+author:
+  name: "小亚说"
+  url: "https://xiaoyarap.github.io/blog"
+  sameAs:
+    - "https://twitter.com/xiaoyarap"
+    - "https://www.xiaohongshu.com/user/profile/5b8271aad24e100001eb3dc8"
+    - "https://space.bilibili.com/602243031"
 
+image: "https://xiaoyarap.github.io/blog/images/logo.jpg"
+
+# 默认 front matter 设置
 defaults:
   - scope:
       path: ""
@@ -26,4 +26,3 @@ defaults:
       author:
         name: "小亚说"
         url: "https://xiaoyarap.github.io/blog"
-      image: https://xiaoyarap.github.io/blog/images/logo.jpg
