@@ -113,7 +113,7 @@
 
         @media (max-width: 768px) {
             .site-nav {
-                flex-grow: 1;
+                flex-grow: 0;
                 justify-content: flex-end;
                 background: transparent;
                 border: none;
@@ -257,7 +257,7 @@
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
-                padding: 0.75rem 1rem;
+                padding: 0.6rem 0.8rem;
                 transition: background-color 0.3s ease;
                 display: flex;
                 gap: 8px;
@@ -287,12 +287,12 @@
                 margin: 0; /* 移除上下偏移 */
                 display: flex !important;
                 flex-direction: column;
-                gap: 3px;
-                justify-content: space-between;
+                gap: 4px;
+                justify-content: center;
                 align-items: center;
                 opacity: 1;
                 margin: 2px 0;
-                height: 18px;
+                height: 24px;
                 width: 24px;  /* 可适配 nav-trigger-area 的居中区域 */
             }
 
@@ -303,7 +303,7 @@
                 margin: 1.5px 0; /* 稍微增加间距 */
                 background-color: #4b0082; /* 使用更高对比度的深色 */
                 border-radius: 1.5px; /* 略微增大圆角 */
-                border: 1px solid black; /* ✅ 看 span 有没有在页面上渲染 */
+                border: none; 
                 opacity: 1;
                 transition: background-color 0.3s ease, transform 0.3s ease;
             }
