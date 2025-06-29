@@ -279,10 +279,10 @@ body {
     }
     .drawer {
         position: fixed;
-        top: 60px;
-        right: 8px;
+        top: 150px;
+        right: 60px;
         width: auto;
-        min-width: fit-content;
+        min-width: 120px;
         max-width: calc(100vw - 16px);
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: none;
@@ -290,12 +290,13 @@ body {
         border-radius: 8px;
         box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         z-index: 9999;
-        padding: 0.3rem 0;
-        max-height: 60vh;
+        padding: 0.4rem 0;
+        max-height: 70vh;
         border: 1px solid #e0e0e0;
         opacity: 0;
         transform: translateY(-10px);
         pointer-events: none;
+        font-size: 1rem;
     }
     /* 移动端激活状态 */
     .drawer.active {
