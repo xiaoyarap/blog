@@ -22,7 +22,7 @@ image: "https://xiaoyarap.github.io/blog/images/logo.jpg"
 defaults:
   - scope:
       path: ""
-      type: "posts"
+      type: "pages"
     values:
       layout: "minimal"  # 改为你的minimal布局
       author:
