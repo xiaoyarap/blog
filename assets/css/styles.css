@@ -279,8 +279,8 @@ body {
     }
     .drawer {
         position: fixed;
-        top: 150px;
-        right: 60px;
+        top: 130px;
+        right: 55px;
         width: auto;
         min-width: 120px;
         max-width: calc(100vw - 16px);
@@ -296,7 +296,8 @@ body {
         opacity: 0;
         transform: translateY(-10px);
         pointer-events: none;
-        font-size: 1rem;
+        font-size: 16px;
+        font-weight: bold;
     }
     /* 移动端激活状态 */
     .drawer.active {
