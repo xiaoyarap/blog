@@ -131,6 +131,59 @@
         margin-top: 5px;
       }
     }
+    .more-posts-section {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 2px dashed #e0e0e0;
+    }
+    
+    .more-title {
+      text-align: center;
+      font-size: 1.5em;
+      color: #5e4b8b;
+      margin-bottom: 10px;
+    }
+    
+    .more-subtitle {
+      text-align: center;
+      font-size: 1em;
+      color: #888;
+      margin-bottom: 15px;
+    }
+    
+    .more-button-wrapper {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .toggle-btn {
+      background: linear-gradient(135deg, #a78bfa, #60a5fa);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .toggle-btn:hover {
+      background: linear-gradient(135deg, #7c3aed, #3b82f6);
+    }
+    
+    .collapsible-posts {
+      display: none;
+      transition: max-height 0.5s ease-out;
+    }
+    
+    @media (max-width: 600px) {
+      .toggle-btn {
+        width: 80%;
+        font-size: 1em;
+      }
+    }
+    
   </style>
 </head>
 <body>
@@ -313,6 +366,53 @@
       </div>
     </div>
   </div>
+<div class="blog-section more-posts-section">
+  <h2 class="more-title">✨ 更多精彩内容 ✨</h2>
+
+  <p class="more-subtitle">👇 点击查看更多文章</p>
+
+  <div class="more-button-wrapper">
+    <button id="toggleMorePosts" class="toggle-btn">展开更多</button>
+  </div>
+
+  <ul id="morePosts" class="blog-list collapsible-posts">
+    {% assign known_titles = "
+      小亚老师逆龄全攻略抗氧饮食护肤全清单,
+      从IT女到玫琳凯粉车女王我的叛逆创业路,
+      老年学堂师资力量专题周亚君,
+      你的人生是低配还是顶配玫琳凯领袖会议给我的启示,
+      给区域督导的一封信,
+      我的爸爸,
+      30年深耕中国走进玫琳凯上海行政总部解锁她力量,
+      年度最佳雇主跨国企业玫琳凯被嫌弃的小生意藏着金矿,
+      玫琳凯宣布可持续发展战略美力永续提出2030年全球目标,
+      玫琳凯6月新品上市小云朵洁面幻时佳净澈焕肤洁颜乳,
+      告别防晒焦虑这样防晒既轻松又有效,
+      睡不着失眠与睡不醒,
+      玫琳凯复合营养奶昔喝出好营养好身材好皮肤,
+      什么是优质胶原蛋白胶原蛋白怎么选才能不交智商税,
+      四大原则帮你科学挑选优质辅酶Q10,
+      腰间盘突出骨质疏松骨折成人骨风险如何预防,
+      30找到理想的另一半须有一个特质,
+      谈谈大龄找对象,
+      婚前需要了解的几个重要价值观,
+      2024Netflix雷普利口碑狂飙的黑白美剧,
+      100部电影之夜枭,
+      读穷查理宝典感悟
+    " | split: "," %}
+    {% for page in site.pages %}
+      {% if page.title and page.date and page.url contains '/blog/' %}
+        {% unless known_titles contains page.title %}
+          <li>
+            <a href="{{ page.url | relative_url }}" target="_blank">{{ page.title }}</a>
+            <span class="blog-date">更新时间: {{ page.date | date: "%Y年%-m月%-d日" }}</span>
+          </li>
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
  {% include footer.html %}
   <!-- JSON-LD Structured Data for Website -->
   <script type="application/ld+json">
@@ -329,6 +429,20 @@
     }
   }
   </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var btn = document.getElementById("toggleMorePosts");
+    var list = document.getElementById("morePosts");
+    var expanded = false;
+
+    btn.addEventListener("click", function () {
+      expanded = !expanded;
+      list.style.display = expanded ? "block" : "none";
+      btn.textContent = expanded ? "收起内容" : "展开更多";
+    });
+  });
+</script>
+
 
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93e542f548f18bb8',t:'MTc0NzAwNDEwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
