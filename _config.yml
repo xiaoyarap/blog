@@ -21,8 +21,8 @@ image: "https://xiaoyarap.github.io/blog/images/logo.jpg"
 # 默认 front matter 设置
 defaults:
   - scope:
-      path: "*.md"
-      type: "pages"
+      path: ""
+      type: "posts"
     values:
       layout: "minimal"  # 改为你的minimal布局
       author:
