@@ -28,3 +28,6 @@ defaults:
       author:
         name: "小亚说"
         url: "https://xiaoyarap.github.io/blog"
+
+plugins:
+  - jekyll-sitemap
