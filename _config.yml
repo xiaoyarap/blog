@@ -1,6 +1,6 @@
 url: "https://xiaoyarap.github.io"
 baseurl: "/blog"
-permalink: /blog/:title.html
+permalink: /blog/:slug.html
 
 # 站点基本信息
 title: "小亚说"
@@ -22,7 +22,7 @@ image: "https://xiaoyarap.github.io/blog/images/logo.jpg"
 # 默认 front matter 设置
 defaults:
   - scope:
-      path: ""
+      path: "_posts"
       type: "posts"
     values:
       layout: "minimal" 
