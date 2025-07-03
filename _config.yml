@@ -24,7 +24,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "post" 
+      layout: "minimal" 
       author:
         name: "小亚说"
         url: "https://xiaoyarap.github.io/blog"
