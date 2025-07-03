@@ -1,5 +1,6 @@
 url: "https://xiaoyarap.github.io"
 baseurl: "/blog"
+permalink: /blog/:title.html
 
 # 站点基本信息
 title: "小亚说"

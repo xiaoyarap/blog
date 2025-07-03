@@ -400,16 +400,16 @@
       100部电影之夜枭,
       读穷查理宝典感悟
     " | split: "," %}
-    {% for page in site.pages %}
-      {% if page.title and page.date and page.url contains '/blog/' %}
-        {% unless known_titles contains page.title %}
-          <li>
-            <a href="{{ page.url | relative_url }}" target="_blank">{{ page.title }}</a>
-            <span class="blog-date">更新时间: {{ page.date | date: "%Y年%-m月%-d日" }}</span>
-          </li>
-        {% endunless %}
-      {% endif %}
+    
+    {% for post in site.posts %}
+      {% unless known_titles contains post.title %}
+        <li>
+          <a href="{{ post.url | relative_url }}" target="_blank">{{ post.title }}</a>
+          <span class="blog-date">更新时间: {{ post.date | date: "%Y年%-m月%-d日" }}</span>
+        </li>
+      {% endunless %}
     {% endfor %}
+
   </ul>
 </div>
 
