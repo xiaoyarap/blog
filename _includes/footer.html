@@ -215,5 +215,34 @@
             setTimeout(() => successMsg.style.display = 'none', 2000);
         }
     </script>
+    
+    <!-- 回到顶部按钮 -->
+<div id="backToTop" title="回到顶部" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, #a78bfa, #60a5fa); color: white; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 9999; font-size: 20px;">↑</div>
+
+<style>
+  html { scroll-behavior: smooth; } /* 全站平滑滚动 */
+  #backToTop { transition: transform 0.2s, opacity 0.3s; }
+  #backToTop:hover { transform: scale(1.1); }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var bttBtn = document.getElementById("backToTop");
+
+  // 滚动超过400像素显示按钮
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 400) {
+      bttBtn.style.display = "flex";
+    } else {
+      bttBtn.style.display = "none";
+    }
+  });
+
+  // 点击回到顶部
+  bttBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
 </body>
 </html>
