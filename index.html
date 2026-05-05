@@ -466,12 +466,18 @@
   document.addEventListener("DOMContentLoaded", function () {
     var btn = document.getElementById("toggleMorePosts");
     var list = document.getElementById("morePosts");
+    var moreSection = document.querySelector(".more-posts-section"); // 定位到更多内容区域
     var expanded = false;
 
     btn.addEventListener("click", function () {
       expanded = !expanded;
       list.style.display = expanded ? "block" : "none";
       btn.textContent = expanded ? "收起内容" : "展开更多";
+
+      // 核心体验优化：如果操作是“收起”，自动滚回分类标题处
+      if (!expanded) {
+        moreSection.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
 </script>
