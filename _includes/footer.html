@@ -7,7 +7,123 @@
     <meta name="keywords" content="xiaoyarap, 生活美学, 护肤, 健康营养，时尚潮流, 美妆, 社交媒体, 玫琳凯">
     <title>MaryKay玫琳凯官方资深美容顾问咨询</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
+    <style>
+        /* --- 核心悬浮容器 --- */
+        #dynamicRocketWidget {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: -apple-system, "SF Pro Text", "PingFang SC", sans-serif;
+            /* 关键：增加平滑的位移过渡，产生跟随感 */
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s;
+            cursor: pointer;
+            text-decoration: none;
+        }
 
+        /* --- 文字卡片：常驻且带漂浮动画 --- */
+        .info-card-permanent {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 18px;
+            padding: 8px;
+            width: 220px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            position: relative;
+            /* 自主上下漂浮 */
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        /* 气泡尖角 */
+        .info-card-permanent::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px 6px 0;
+            border-style: solid;
+            border-color: rgba(255, 255, 255, 0.9) transparent;
+        }
+
+        /* New Opportunity 标签 */
+        .opportunity-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+            color: white;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(124, 58, 237, 0.2);
+        }
+
+        .info-card-title {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 6px;
+        }
+
+        .info-card-desc {
+            display: block;
+            font-size: 12px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        /* --- 小火箭图标 --- */
+        .rocket-circle {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 2px solid #f3f4f6;
+            transition: all 0.3s ease;
+        }
+
+        .rocket-icon {
+            font-size: 35px;
+            /* 初始倾斜，准备起飞感 */
+            transform: rotate(-10deg);
+            transition: transform 0.3s ease;
+        }
+
+        /* --- 动态类：滚动时触发 --- */
+        .scrolling {
+            transform: scale(1.05) translateY(-10px); /* 滚动时微微上浮，产生动力感 */
+        }
+
+        /* --- 动画帧 --- */
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* 鼠标悬停交互 */
+        #dynamicRocketWidget:hover .rocket-circle {
+            background: #fdfaff;
+            border-color: #a78bfa;
+            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2);
+        }
+        
+        #dynamicRocketWidget:hover .rocket-icon {
+            transform: rotate(10deg) scale(1.2);
+        }
+    </style>
 </head>
 <body>
     <footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter">
@@ -216,33 +332,39 @@
         }
     </script>
     
-    <!-- 回到顶部按钮 -->
-<div id="backToTop" title="回到顶部" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, #a78bfa, #60a5fa); color: white; border-radius: 50%; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 9999; font-size: 20px;">↑</div>
+    
+    <!-- 挂件 HTML -->
+    <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzUxNDAwNTk0MQ==&action=getalbum&album_id=2679158701706002433#wechat_redirect" id="dynamicRocketWidget">
+        <!-- 文字卡片区 -->
+        <div class="info-card-permanent">
+            <div class="opportunity-tag">New Opportunity</div>
+            <span class="info-card-title">远程事业机会</span>
+            <span class="info-card-desc">在健康领域深耕，开启自由办公模式。</span>
+        </div>
 
-<style>
-  html { scroll-behavior: smooth; } /* 全站平滑滚动 */
-  #backToTop { transition: transform 0.2s, opacity 0.3s; }
-  #backToTop:hover { transform: scale(1.1); }
-</style>
+        <!-- 火箭图标区 -->
+        <div class="rocket-circle">
+            <span class="rocket-icon">🚀</span>
+        </div>
+    </a>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var bttBtn = document.getElementById("backToTop");
+    <!-- 脚本逻辑：处理动态跟随的物理反馈 -->
+    <script>
+        let isScrolling;
+        const widget = document.getElementById('dynamicRocketWidget');
 
-  // 滚动超过400像素显示按钮
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 400) {
-      bttBtn.style.display = "flex";
-    } else {
-      bttBtn.style.display = "none";
-    }
-  });
+        window.addEventListener('scroll', function() {
+            // 1. 滚动时添加类名，触发 CSS 变换
+            widget.classList.add('scrolling');
 
-  // 点击回到顶部
-  bttBtn.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-});
-</script>
+            // 2. 清除之前的定时器
+            window.clearTimeout(isScrolling);
+
+            // 3. 停止滚动 150ms 后，恢复原位
+            isScrolling = setTimeout(function() {
+                widget.classList.remove('scrolling');
+            }, 150);
+        });
+    </script>
 </body>
 </html>
