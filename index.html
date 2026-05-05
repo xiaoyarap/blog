@@ -413,7 +413,7 @@
   <p class="more-subtitle">👇 点击查看更多文章</p>
 
   <div class="more-button-wrapper">
-    <button id="toggleMorePosts" class="toggle-btn">展开更多</button>
+    <button id="toggleMorePosts" class="toggle-btn">最近更新</button>
   </div>
 
   <ul id="morePosts" class="blog-list collapsible-posts">
@@ -473,23 +473,34 @@
 <script>
  document.addEventListener("DOMContentLoaded", function () {
   var btn = document.getElementById("toggleMorePosts");
-  var list = document.getElementById("morePosts");
-  var expanded = false;
+  var container = document.getElementById("all-posts-container");
+  
+  // 备份原始的所有文章 li 标签（跨分类提取）
+  var allLis = Array.from(container.querySelectorAll("li"));
+  // 备份原始的完整 HTML（用于收起时还原）
+  var originalHTML = container.innerHTML;
+
+  var isLimited = false; // 初始状态是展开的，你想点击后变 5 篇
 
   btn.addEventListener("click", function (e) {
-    // 1. 防止页面因为链接跳转或默认行为刷回到顶部
-    e.preventDefault(); 
+    e.preventDefault();
+    isLimited = !isLimited;
 
-    expanded = !expanded;
-    list.style.display = expanded ? "block" : "none";
-    btn.textContent = expanded ? "收起内容" : "展开更多";
+    if (isLimited) {
+      // 1. 提取前 5 个 li 的 HTML
+      var top5HTML = '<ul class="blog-list">';
+      allLis.slice(0, 5).forEach(function(li) {
+        top5HTML += li.outerHTML;
+      });
+      top5HTML += '</ul>';
 
-    // 2. 只有在“收起”时，才执行平滑滚动回按钮位置
-    if (!expanded) {
-      // scrollIntoView 会把这个按钮带到屏幕中间，不会回到最顶端
-      setTimeout(function() {
-        btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 10);
+      // 2. 替换容器内容
+      container.innerHTML = top5HTML;
+      btn.textContent = "显示全部内容";
+    } else {
+      // 3. 还原完整内容
+      container.innerHTML = originalHTML;
+      btn.textContent = "最近更新";
     }
   });
 });
