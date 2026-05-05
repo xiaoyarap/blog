@@ -471,36 +471,35 @@
   }
   </script>
 <script>
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   var btn = document.getElementById("toggleMorePosts");
-  var container = document.getElementById("all-posts-container");
-  
-  // 备份原始的所有文章 li 标签（跨分类提取）
-  var allLis = Array.from(container.querySelectorAll("li"));
-  // 备份原始的完整 HTML（用于收起时还原）
-  var originalHTML = container.innerHTML;
+  var list = document.getElementById("morePosts");
+  var isExpanded = false;
 
-  var isLimited = false; // 初始状态是展开的，你想点击后变 5 篇
+  // 预先获取所有文章项
+  var allItems = Array.from(list.querySelectorAll("li"));
 
   btn.addEventListener("click", function (e) {
     e.preventDefault();
-    isLimited = !isLimited;
+    isExpanded = !isExpanded;
 
-    if (isLimited) {
-      // 1. 提取前 5 个 li 的 HTML
-      var top5HTML = '<ul class="blog-list">';
-      allLis.slice(0, 5).forEach(function(li) {
-        top5HTML += li.outerHTML;
+    if (isExpanded) {
+      // 展开逻辑：显示列表，并只展示前 5 个
+      list.style.display = "block";
+      
+      allItems.forEach(function(item, index) {
+        // 如果索引大于等于 5，则隐藏，否则显示
+        item.style.display = index < 5 ? "block" : "none";
       });
-      top5HTML += '</ul>';
 
-      // 2. 替换容器内容
-      container.innerHTML = top5HTML;
-      btn.textContent = "显示全部内容";
+      btn.textContent = "收起内容";
     } else {
-      // 3. 还原完整内容
-      container.innerHTML = originalHTML;
+      // 收起逻辑：直接隐藏整个列表
+      list.style.display = "none";
       btn.textContent = "最近更新";
+      
+      // 平滑滚动回按钮位置，防止页面跳动
+      btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   });
 });
