@@ -471,23 +471,26 @@
   }
   </script>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var btn = document.getElementById("toggleMorePosts");
-    var list = document.getElementById("morePosts");
-    var moreSection = document.querySelector(".more-posts-section"); // 定位到更多内容区域
-    var expanded = false;
+ document.addEventListener("DOMContentLoaded", function () {
+  var btn = document.getElementById("toggleMorePosts");
+  var list = document.getElementById("morePosts");
+  var expanded = false;
 
-  btn.addEventListener("click", function () {
-  expanded = !expanded;
-  list.style.display = expanded ? "block" : "none";
-  btn.textContent = expanded ? "收起内容" : "展开更多";
+  btn.addEventListener("click", function (e) {
+    // 1. 防止页面因为链接跳转或默认行为刷回到顶部
+    e.preventDefault(); 
 
-  // 关键：点击收起时，只回弹到按钮这里，而不是回顶
-  if (!expanded) {
-    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-});
+    expanded = !expanded;
+    list.style.display = expanded ? "block" : "none";
+    btn.textContent = expanded ? "收起内容" : "展开更多";
+
+    // 2. 只有在“收起”时，才执行平滑滚动回按钮位置
+    if (!expanded) {
+      // scrollIntoView 会把这个按钮带到屏幕中间，不会回到最顶端
+      btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   });
+});
 </script>
 
 
