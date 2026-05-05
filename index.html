@@ -477,16 +477,16 @@
     var moreSection = document.querySelector(".more-posts-section"); // 定位到更多内容区域
     var expanded = false;
 
-    btn.addEventListener("click", function () {
-      expanded = !expanded;
-      list.style.display = expanded ? "block" : "none";
-      btn.textContent = expanded ? "收起内容" : "展开更多";
+  btn.addEventListener("click", function () {
+  expanded = !expanded;
+  list.style.display = expanded ? "block" : "none";
+  btn.textContent = expanded ? "收起内容" : "展开更多";
 
-      // 核心体验优化：如果操作是“收起”，自动滚回分类标题处
-      if (!expanded) {
-        moreSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+  // 关键：点击收起时，只回弹到按钮这里，而不是回顶
+  if (!expanded) {
+    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+});
   });
 </script>
 
