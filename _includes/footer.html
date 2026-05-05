@@ -123,6 +123,76 @@
         #dynamicRocketWidget:hover .rocket-icon {
             transform: rotate(10deg) scale(1.2);
         }
+        /* =============================================
+   📱 专门针对手机客户端/移动端浏览器的极致样式
+   ============================================= */
+@media (max-width: 768px) {
+    #dynamicRocketWidget {
+        /* 1. 靠边停靠，整体缩小到 0.75 倍，显得更精致 */
+        bottom: 25px !important;
+        right: 12px !important;
+        transform: scale(0.75) !important;
+        transform-origin: bottom right;
+    }
+
+    /* 2. 极致透明气泡卡片 */
+    .info-card-permanent {
+        /* 将透明度压低到 0.2，产生近乎全透明的视觉 */
+        background: rgba(255, 255, 255, 0.2) !important; 
+        
+        /* 重点：增加饱和度提升，让划过背景时颜色更鲜艳 */
+        backdrop-filter: blur(20px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+        
+        /* 增加一道极细的亮白边框，模拟玻璃边缘 */
+        border: 0.5px solid rgba(255, 255, 255, 0.5) !important;
+        
+        width: 150px !important;
+        padding: 12px !important;
+        margin-bottom: 8px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    /* 气泡尖角也保持同步透明 */
+    .info-card-permanent::after {
+        border-color: rgba(255, 255, 255, 0.2) transparent !important;
+    }
+
+    /* 3. 手机端文字处理：防止太透了看不清 */
+    .info-card-title {
+        font-size: 14px !important;
+        color: #000 !important;
+        font-weight: 800 !important; /* 加粗文字 */
+        /* 给文字加一层微弱的白影，确保在任何背景图上都清晰 */
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); 
+    }
+
+    .opportunity-tag {
+        font-size: 8px !important;
+        padding: 1px 6px !important;
+        /* 标签稍微深一点，增加对比度 */
+        background: linear-gradient(135deg, #7c3aed, #6d28d9) !important;
+    }
+
+    /* 4. 火箭底座优化：采用果冻感透明设计 */
+    .rocket-circle {
+        width: 55px !important;
+        height: 55px !important;
+        background: rgba(255, 255, 255, 0.3) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    }
+
+    .rocket-icon {
+        font-size: 28px !important;
+    }
+
+    /* 5. 滚动动效微调 */
+    .scrolling {
+        transform: scale(0.8) translateY(-4px) !important;
+    }
+    }
     </style>
 </head>
 <body>
