@@ -129,11 +129,19 @@
       }
     }
     .more-posts-section {
+      width: 100%; /* 确保外层占满 */
       margin-top: 60px;
       padding-top: 30px;
       border-top: 2px dashed #e0e0e0;
     }
-    
+
+    #morePosts {
+      max-width: 800px;       /* 必须和你的 .container 宽度一致 */
+      margin: 0 auto;         /* 居中 */
+      padding: 0 20px;        /* 关键：增加左右间距，解决“贴边”和“丑”的问题 */
+      box-sizing: border-box;  /* 保证 padding 不会把页面撑宽 */
+    }
+        
     .more-title {
       text-align: center;
       font-size: 1.5em;
