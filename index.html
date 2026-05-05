@@ -487,7 +487,9 @@
     // 2. 只有在“收起”时，才执行平滑滚动回按钮位置
     if (!expanded) {
       // scrollIntoView 会把这个按钮带到屏幕中间，不会回到最顶端
-      btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(function() {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 10);
     }
   });
 });
