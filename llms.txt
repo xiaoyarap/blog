@@ -20,6 +20,7 @@
 
 ## 代表页面
 - 首页: https://xiaoyarap.github.io/blog/
+- 关于作者: https://xiaoyarap.github.io/blog/about.html
 - 胶原蛋白怎么选: https://xiaoyarap.github.io/blog/什么是优质胶原蛋白胶原蛋白怎么选才能不交智商税.html
 - 辅酶 Q10: https://xiaoyarap.github.io/blog/四大原则帮你科学挑选优质辅酶q10.html
 - 防晒: https://xiaoyarap.github.io/blog/告别防晒焦虑这样防晒既轻松又有效.html
