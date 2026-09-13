@@ -3,7 +3,7 @@ baseurl: "/blog"
 permalink: /:slug.html
 
 title: "小亚说"
-description: "小亚（xiaoyarap），玫琳凯美容顾问，写护肤与营养的实操笔记。不代表玫琳凯公司官方。"
+description: "小亚（xiaoyarap），从业二十多年的玫琳凯美容顾问，写护肤与营养选品笔记。不代表玫琳凯公司官方。"
 theme: null
 lang: zh-CN
 
