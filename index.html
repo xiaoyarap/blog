@@ -6,190 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://xiaoyarap.github.io/blog/">
-  <title>小亚说 - 护肤与健康营养专业服务</title>
-    <style>
-    
-    .nav-wrapper {
-      background: linear-gradient(135deg, #d4bfff 0%, #c1d3ff 100%);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      padding: 1rem 2rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    nav a:hover {
-      color: #3498db;
-    }
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 0 20px;
-    }
-    .intro {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .services {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-    .service-box {
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      padding: 20px;
-      width: 45%;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .service-box h3 {
-      color: #2c3e50;
-    }
-    .service-box a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: #3498db;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .service-box a:hover {
-      background: #2980b9;
-    }
-    .blog-section {
-      margin-top: 40px;
-    }
-    .blog-section h2 {
-      color: #2c3e50;
-      text-align: center;
-    }
-    .blog-section h3 {
-      color: #2c3e50;
-      margin-top: 20px;
-    }
-    .blog-list {
-      list-style: none;
-      padding: 0;
-    }
-    .blog-list li {
-      margin: 10px 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .blog-list a {
-      color: #3498db;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-    .blog-list a:hover {
-      color: #2980b9;
-      text-decoration: underline;
-    }
-    .blog-date {
-      font-size: 0.9em;
-      color: #666;
-      float: right;
-      margin-left: 10px;
-    }
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      width: 100%;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 600px) {
-      .service-box {
-        width: 100%;
-      }
-      .nav-wrapper {
-        background: linear-gradient(135deg, #d4bfff 0%, #c1d3ff 100%);
-        padding: 10px 10px;
-      }
-      nav a {
-        display: block;
-        margin: 10px 0;
-        text-align: center;
-      }
-      footer {
-        position: relative;
-      }
-      .blog-date {
-        float: none;
-        display: block;
-        margin-top: 5px;
-      }
-    }
-    .more-posts-section {
-      width: 100%; /* 确保外层占满 */
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 2px dashed #e0e0e0;
-    }
-
-    #morePosts {
-      max-width: 800px;       /* 必须和你的 .container 宽度一致 */
-      margin: 0 auto;         /* 居中 */
-      padding: 0 20px;        /* 关键：增加左右间距，解决“贴边”和“丑”的问题 */
-      box-sizing: border-box;  /* 保证 padding 不会把页面撑宽 */
-    }
-        
-    .more-title {
-      text-align: center;
-      font-size: 1.5em;
-      color: #5e4b8b;
-      margin-bottom: 10px;
-    }
-    
-    .more-subtitle {
-      text-align: center;
-      font-size: 1em;
-      color: #888;
-      margin-bottom: 15px;
-    }
-    
-    .more-button-wrapper {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    
-    .toggle-btn {
-      background: linear-gradient(135deg, #a78bfa, #60a5fa);
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    
-    .toggle-btn:hover {
-      background: linear-gradient(135deg, #7c3aed, #3b82f6);
-    }
-    
-    .collapsible-posts {
-      display: none;
-      transition: max-height 0.5s ease-out;
-    }
-    
-    @media (max-width: 600px) {
-      .toggle-btn {
-        width: 80%;
-        font-size: 1em;
-      }
-    }
-    
-  </style>
+  <title>小亚说 - 护肤与健康营养笔记</title>
 </head>
 <body>
          {% include header.html %}
@@ -409,50 +226,16 @@
     </div>
   </div>
 <div class="blog-section more-posts-section">
-  <h2 class="more-title">✨ 更多精彩内容 ✨</h2>
-
-  <p class="more-subtitle">👇 点击查看更多文章</p>
-
-  <div class="more-button-wrapper">
-    <button id="toggleMorePosts" class="toggle-btn">最近更新</button>
-  </div>
-
-  <ul id="morePosts" class="blog-list collapsible-posts">
-    {% assign known_titles = "
-      小亚老师逆龄全攻略抗氧饮食护肤全清单,
-      从IT女到玫琳凯粉车女王我的叛逆创业路,
-      老年学堂师资力量专题周亚君,
-      你的人生是低配还是顶配玫琳凯领袖会议给我的启示,
-      给区域督导的一封信,
-      我的爸爸,
-      30年深耕中国走进玫琳凯上海行政总部解锁她力量,
-      年度最佳雇主跨国企业玫琳凯被嫌弃的小生意藏着金矿,
-      玫琳凯宣布可持续发展战略美力永续提出2030年全球目标,
-      玫琳凯6月新品上市小云朵洁面幻时佳净澈焕肤洁颜乳,
-      告别防晒焦虑这样防晒既轻松又有效,
-      睡不着失眠与睡不醒,
-      玫琳凯复合营养奶昔喝出好营养好身材好皮肤,
-      什么是优质胶原蛋白胶原蛋白怎么选才能不交智商税,
-      四大原则帮你科学挑选优质辅酶Q10,
-      腰间盘突出骨质疏松骨折成人骨风险如何预防,
-      30找到理想的另一半须有一个特质,
-      谈谈大龄找对象,
-      婚前需要了解的几个重要价值观,
-      2024Netflix雷普利口碑狂飙的黑白美剧,
-      100部电影之夜枭,
-      读穷查理宝典感悟
-    " | split: "," %}
-    
-    {% for post in site.posts %}
-      {% unless known_titles contains post.title %}
-        <li>
-          <a href="{{ post.url | relative_url }}" target="_blank">{{ post.title }}</a>
-          <span class="blog-date">更新时间: {{ post.date | date: "%Y年%-m月%-d日" }}</span>
-        </li>
-      {% endunless %}
+  <h2 class="more-title">最近文章</h2>
+  <ul class="blog-list">
+    {% for post in site.posts limit:10 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="blog-date">{{ post.date | date: "%Y年%-m月%-d日" }}</span>
+      </li>
     {% endfor %}
-
   </ul>
+  <p class="more-subtitle"><a href="{{ site.baseurl }}/archive.html">全部文章归档</a></p>
 </div>
 
  {% include footer.html %}
@@ -466,42 +249,5 @@
     "description": "小亚说：护肤与健康营养笔记。作者为玫琳凯美容顾问，内容为个人实践，不代表玫琳凯公司官方。"
   }
   </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var btn = document.getElementById("toggleMorePosts");
-  var list = document.getElementById("morePosts");
-  var isExpanded = false;
-
-  // 预先获取所有文章项
-  var allItems = Array.from(list.querySelectorAll("li"));
-
-  btn.addEventListener("click", function (e) {
-    e.preventDefault();
-    isExpanded = !isExpanded;
-
-    if (isExpanded) {
-      // 展开逻辑：显示列表，并只展示前 5 个
-      list.style.display = "block";
-      
-      allItems.forEach(function(item, index) {
-        // 如果索引大于等于 5，则隐藏，否则显示
-        item.style.display = index < 5 ? "block" : "none";
-      });
-
-      btn.textContent = "收起内容";
-    } else {
-      // 收起逻辑：直接隐藏整个列表
-      list.style.display = "none";
-      btn.textContent = "最近更新";
-      
-      // 平滑滚动回按钮位置，防止页面跳动
-      btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  });
-});
-</script>
-
-
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93e542f548f18bb8',t:'MTc0NzAwNDEwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
