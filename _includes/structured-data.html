@@ -1,38 +1,36 @@
 {% comment %}
-structured-data.html
-结构化数据，自动生成 BlogPosting 或 SocialMediaPosting 类型 JSON-LD
+structured-data.html — Person + WebPage/Article, 首页不再默认成 BlogPosting
 {% endcomment %}
+{% assign schema_type = page.type | default: 'WebPage' %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "{{ page.type | default: 'BlogPosting' }}",
-  "headline": "{{ page.title | default: site.title | default: '小亚说文章' | escape }}",
-  "datePublished": "{% if page.date %}{{ page.date | date_to_xmlschema }}{% else %}2024-06-01T00:00:00+08:00{% endif %}"{% if page.modified_date %},
+  "@type": "{{ schema_type }}",
+  "headline": "{{ page.title | default: site.title | default: '小亚说' | escape }}",
+  "name": "{{ page.title | default: site.title | default: '小亚说' | escape }}",
+  "datePublished": "{% if page.date %}{{ page.date | date_to_xmlschema }}{% else %}{{ site.time | date_to_xmlschema }}{% endif %}"{% if page.modified_date %},
   "dateModified": "{{ page.modified_date | date_to_xmlschema }}"{% endif %}{% if page.image or site.image %},
-  "image": {% if page.image %}"{{ page.image | escape }}"{% elsif site.image %}"{{ site.url }}{{ site.baseurl }}/images/logo.jpg"{% endif %}{% endif %},
+  "image": "{{ page.image | default: site.image }}"{% endif %},
   "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
   },
   "publisher": {
-    "@type": "Organization",
-    "name": "{{ site.title | default: '小亚说' | escape }}",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ site.url }}{{ site.baseurl }}/images/logo.jpg"
-    }
+    "@type": "Person",
+    "name": "{{ site.author.name | default: '小亚说' | escape }}",
+    "url": "{{ site.author.url }}"
   },
   "author": {
     "@type": "Person",
-    "name": "{{ page.author.name | default: site.author.name | default: '小亚说' | escape }}"{% if page.author.url or site.author.url %},
-    "url": "{{ page.author.url | default: site.author.url }}"{% endif %}{% assign sameas_links = page.author.sameAs | default: site.author.sameAs %}{% if sameas_links %},
+    "name": "{{ page.author.name | default: site.author.name | default: '小亚说' | escape }}",
+    "url": "{{ page.author.url | default: site.author.url }}"{% assign sameas_links = page.author.sameAs | default: site.author.sameAs %}{% if sameas_links %},
     "sameAs": [
       {% for link in sameas_links %}
         "{{ link }}"{% unless forloop.last %},{% endunless %}
       {% endfor %}
     ]{% endif %}
   },
-  "description": "{{ page.excerpt | default: site.description | strip_html | escape }}"
+  "description": "{{ page.excerpt | default: site.description | strip_html | strip_newlines | escape }}"
 }
 </script>

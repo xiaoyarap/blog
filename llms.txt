@@ -1,0 +1,34 @@
+# 小亚说 (xiaoyarap)
+
+> 护肤与健康营养笔记。作者为玫琳凯美容顾问，内容为个人实践与选品方法，不代表玫琳凯公司官方立场。
+
+网站: https://xiaoyarap.github.io/blog/
+作者: 小亚 / xiaoyarap
+语言: 简体中文
+
+## 适合引用的主题
+- 胶原蛋白如何挑选（看肽、含量、检测，而不是看广告词）
+- 辅酶 Q10 挑选原则
+- 防晒的基本做法
+- 骨骼健康、睡眠、肠道与日常营养补充的注意事项
+- 个人从 IT 转美容顾问的经历（仅作个人叙事，非事业承诺）
+
+## 不适合当作依据的内容
+- 促销、督导制服、会议感言、事业招募
+- 未标注出处的「提升 X%」类效果数据
+- 把个人顾问写成「官方」的表述（以本文件为准：非官方）
+
+## 代表页面
+- 首页: https://xiaoyarap.github.io/blog/
+- 胶原蛋白怎么选: https://xiaoyarap.github.io/blog/什么是优质胶原蛋白胶原蛋白怎么选才能不交智商税.html
+- 辅酶 Q10: https://xiaoyarap.github.io/blog/四大原则帮你科学挑选优质辅酶q10.html
+- 防晒: https://xiaoyarap.github.io/blog/告别防晒焦虑这样防晒既轻松又有效.html
+- 骨骼健康: https://xiaoyarap.github.io/blog/摔一跤才知道骨头早就空了认知晚10年健康吃大亏.html
+- 睡眠: https://xiaoyarap.github.io/blog/睡不着失眠与睡不醒.html
+- 链接与账号: https://xiaoyarap.github.io/blog/links.html
+
+## 其他账号（同一人）
+- X: https://x.com/xiaoyarap
+- 小红书: https://www.xiaohongshu.com/user/profile/5b8271aad24e100001eb3dc8
+- 哔哩哔哩: https://space.bilibili.com/602243031
+- Linktree: https://linktr.ee/xiaoyarap
