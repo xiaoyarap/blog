@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GJQGLP28T0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-GJQGLP28T0');
 </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="GKeE_ZEjBJyM3pfPlRSVjC2qKZcw3LuPXE7Wn1GwTIM" />
-  <meta name="description" content="小亚说公众号提供专业护肤与健康营养服务，专注玫琳凯产品、科学减脂、情感指南及旅行攻略，助您焕发自信与活力！">
-  <meta name="keywords" content="小亚说公众号, 玫琳凯, 护肤, 健康营养, 科学减脂, 情感指南, 旅行攻略, 生活方式">
-  <meta name="author" content="小亚说">
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
 {% include structured-data.html %}
-</head>
-<body>
-  <header class="site-header">
+<header class="site-header">
   <div class="wrapper header-wrapper">
     <div class="brand">
       <h1>小亚说</h1>
@@ -51,101 +39,61 @@
       </div>
     </div>
   </div>
-  </header>
-
-  <!-- 遮罩层 -->
-  <div class="overlay" id="overlay"></div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // 处理微信图片代理
-      const images = document.querySelectorAll('img[src*="mmbiz.qpic.cn"]');
-      images.forEach(img => {
-        img.src = 'https://images.weserv.nl/?url=' + encodeURIComponent(img.src);
-      });
-
-      // 移动端导航菜单控制
-      const navTrigger = document.getElementById('navTrigger');
-      const menuIcon = document.getElementById('menuIcon');
-      const drawer = document.getElementById('drawer');
-      const overlay = document.getElementById('overlay');
-      let isMenuOpen = false;
-
-      // 检测是否为移动端
-      function isMobile() {
-        return window.innerWidth <= 768;
+</header>
+<div class="overlay" id="overlay"></div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[src*="mmbiz.qpic.cn"]');
+    images.forEach(img => {
+      img.src = 'https://images.weserv.nl/?url=' + encodeURIComponent(img.src);
+    });
+    const navTrigger = document.getElementById('navTrigger');
+    const menuIcon = document.getElementById('menuIcon');
+    const drawer = document.getElementById('drawer');
+    const overlay = document.getElementById('overlay');
+    let isMenuOpen = false;
+    function isMobile() { return window.innerWidth <= 768; }
+    function toggleMenu() {
+      if (!isMobile()) return;
+      isMenuOpen = !isMenuOpen;
+      if (isMenuOpen) {
+        drawer.classList.add('active');
+        menuIcon.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      } else {
+        drawer.classList.remove('active');
+        menuIcon.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
       }
-
-      // 切换菜单状态
-      function toggleMenu() {
-        if (!isMobile()) return; // 只在移动端工作
-        
-        isMenuOpen = !isMenuOpen;
-        
-        if (isMenuOpen) {
-          drawer.classList.add('active');
-          menuIcon.classList.add('active');
-          overlay.classList.add('active');
-          // 防止背景滚动
-          document.body.style.overflow = 'hidden';
-        } else {
-          drawer.classList.remove('active');
-          menuIcon.classList.remove('active');
-          overlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
+    }
+    function closeMenu() {
+      if (isMenuOpen) {
+        isMenuOpen = false;
+        drawer.classList.remove('active');
+        menuIcon.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
       }
-
-      // 关闭菜单
-      function closeMenu() {
-        if (isMenuOpen) {
-          isMenuOpen = false;
-          drawer.classList.remove('active');
-          menuIcon.classList.remove('active');
-          overlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      }
-
-      // 点击导航触发区域
-      navTrigger.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleMenu();
-      });
-
-      // 点击遮罩层关闭菜单
-      overlay.addEventListener('click', closeMenu);
-
-      // 点击菜单项后关闭菜单
-      const pageLinks = document.querySelectorAll('.page-link');
-      pageLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          if (isMobile()) {
-            setTimeout(closeMenu, 100); // 稍微延迟关闭，让用户看到点击效果
-          }
-        });
-      });
-
-      // 窗口大小改变时的处理
-      window.addEventListener('resize', function() {
-        if (!isMobile() && isMenuOpen) {
-          closeMenu();
-        }
-      });
-
-      // 阻止菜单内的点击事件冒泡到document
-      drawer.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-
-      // 按ESC键关闭菜单
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && isMenuOpen) {
-          closeMenu();
-        }
+    }
+    if (navTrigger) navTrigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleMenu();
+    });
+    if (overlay) overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.page-link').forEach(link => {
+      link.addEventListener('click', function() {
+        if (isMobile()) setTimeout(closeMenu, 100);
       });
     });
-  </script>
-</body>
-</html>
+    window.addEventListener('resize', function() {
+      if (!isMobile() && isMenuOpen) closeMenu();
+    });
+    if (drawer) drawer.addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && isMenuOpen) closeMenu();
+    });
+  });
+</script>
