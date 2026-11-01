@@ -14,7 +14,7 @@
                         </div>
                         <h3 class="card-title">Twitter</h3>
                         <p class="card-username" itemprop="author">获取最新潮流资讯和生活分享，关注不迷路</p>
-                        <a href="https://twitter.com/xiaoyarap" class="visit-btn twitter-btn" target="_blank" rel="noopener nofollow" onclick="trackVisit('twitter')" aria-label="关注xiaoyarap的Twitter" itemprop="url">
+                        <a href="https://x.com/yajun350332" class="visit-btn twitter-btn" target="_blank" rel="noopener nofollow" onclick="trackVisit('twitter')" aria-label="关注yajun350332的Twitter" itemprop="url">
                             <span class="btn-icon">🐦</span>
                             关注Twitter
                         </a>
@@ -92,6 +92,56 @@
     {% endif %}
     </footer>
 
+    <div class="visit-success" id="visitSuccess" role="alert">感谢关注！正在跳转...</div>
+
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DNS预解析
+            ['https://twitter.com', 'https://space.bilibili.com', 'https://www.xiaohongshu.com', 'https://www.marykay.com.cn'].forEach(url => {
+                const link = document.createElement('link');
+                link.rel = 'dns-prefetch';
+                link.href = url;
+                document.head.appendChild(link);
+            });
+
+            // 优化结构化数据
+            const structuredData = {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "xiaoyarap",
+                "url": "https://xiaoyarap.com",
+                "sameAs": [
+                    "https://x.com/yajun350332",
+                    "https://space.bilibili.com/602243031",
+                    "https://www.xiaohongshu.com/user/profile/5b8271aad24e100001eb3dc8",
+                    "https://www.marykay.com.cn"
+                ],
+                "jobTitle": "内容创作者 & 美妆顾问",
+                "description": "分享生活美学、护肤心得和时尚潮流，提供优质美妆产品推荐。",
+                "contactPoint": [
+                    {
+                        "@type": "ContactPoint",
+                        "email": "business@xiaoyarap.com",
+                        "contactType": "商务合作",
+                        "availableLanguage": ["zh-CN"]
+                    },
+                    {
+                        "@type": "ContactPoint",
+                        "telephone": "+86-123-456-7890",
+                        "contactType": "客户服务",
+                        "availableLanguage": ["zh-CN"]
+                    }
+                ]
+            };
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.textContent = JSON.stringify(structuredData);
+            document.head.appendChild(script);
+
+            // Mobile tap toggle for QR code (MaryKay only)
+            const maryKayBtn = document.querySelector('.marykay-btn');
+            const maryKayQR = document.getElementById('marykayQR');
+            let isQrVisible = false;
     
 
     

@@ -35,7 +35,7 @@ excerpt: 小亚（xiaoyarap），从业二十多年的玫琳凯美容顾问，�
 ## 同一人账号
 
 - 网站：[https://xiaoyarap.github.io/blog/](https://xiaoyarap.github.io/blog/)
-- X：[@xiaoyarap](https://x.com/xiaoyarap)
+- X：[@yajun350332](https://x.com/yajun350332)
 - 小红书：[主页](https://www.xiaohongshu.com/user/profile/5b8271aad24e100001eb3dc8)
 - 哔哩哔哩：[空间](https://space.bilibili.com/602243031)
 - Linktree：[xiaoyarap](https://linktr.ee/xiaoyarap)
@@ -54,8 +54,8 @@ excerpt: 小亚（xiaoyarap），从业二十多年的玫琳凯美容顾问，�
   "description": "从业二十多年的玫琳凯美容顾问，写护肤与营养选品笔记。不代表玫琳凯公司官方。",
   "knowsAbout": ["护肤", "防晒", "美容顾问", "营养补充剂选品", "胶原蛋白", "辅酶Q10"],
   "sameAs": [
-    "https://x.com/xiaoyarap",
-    "https://twitter.com/xiaoyarap",
+    "https://x.com/yajun350332",
+    "https://x.com/yajun350332",
     "https://www.xiaohongshu.com/user/profile/5b8271aad24e100001eb3dc8",
     "https://space.bilibili.com/602243031",
     "https://linktr.ee/xiaoyarap"
