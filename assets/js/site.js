@@ -31,7 +31,6 @@
       document.body.style.overflow = '';
     }
     function toggleMenu() {
-      if (!isMobile()) return;
       isMenuOpen = !isMenuOpen;
       if (isMenuOpen) {
         if (drawer) drawer.classList.add('active');
@@ -50,24 +49,31 @@
       link.addEventListener('click', function () { if (isMobile()) setTimeout(closeMenu, 100); });
     });
     window.addEventListener('resize', function () { if (!isMobile() && isMenuOpen) closeMenu(); });
+    document.addEventListener('click', function (e) {
+      if (!isMenuOpen) return;
+      if (navTrigger && navTrigger.contains(e.target)) return;
+      if (drawer && drawer.contains(e.target)) return;
+      closeMenu();
+    });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 
     var maryKayBtn = document.querySelector('.marykay-btn');
     var maryKayQR = document.getElementById('marykayQR');
-    var isQrVisible = false;
     if (maryKayBtn && maryKayQR) {
+      function closeQr() { maryKayQR.classList.remove('show'); }
       maryKayBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        isQrVisible = !isQrVisible;
-        maryKayQR.style.opacity = isQrVisible ? '1' : '0';
-        maryKayQR.style.visibility = isQrVisible ? 'visible' : 'hidden';
+        e.stopPropagation();
+        maryKayQR.classList.toggle('show');
       });
+      maryKayQR.addEventListener('click', function (e) { e.stopPropagation(); });
       document.addEventListener('click', function (e) {
-        if (!maryKayBtn.contains(e.target) && !maryKayQR.contains(e.target)) {
-          isQrVisible = false;
-          maryKayQR.style.opacity = '0';
-          maryKayQR.style.visibility = 'hidden';
-        }
+        if (!maryKayQR.classList.contains('show')) return;
+        if (maryKayBtn.contains(e.target)) return;
+        closeQr();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeQr();
       });
     }
 
